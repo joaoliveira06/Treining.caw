@@ -219,7 +219,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 .cert-co{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:3px;color:var(--t1)}
 .cert-cos{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:30px}
 .cert-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;text-transform:uppercase;letter-spacing:3px;color:var(--t1);margin-bottom:4px}
-.cert-h1 em{font-style:normal;color:var(--or)}
+.cert-h1 em{font-style:normal;color:var(--t1)}
 .cert-h2{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:32px}
 .cert-nm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:46px;color:var(--or);line-height:1;margin-bottom:7px}
 .cert-bd{font-size:14px;color:var(--t2);margin-bottom:24px}
