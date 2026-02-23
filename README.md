@@ -219,7 +219,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 .cert-co{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:3px;color:var(--t1)}
 .cert-cos{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:30px}
 .cert-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;text-transform:uppercase;letter-spacing:3px;color:var(--t1);margin-bottom:4px}
-.cert-h1 em{font-style:normal;color:var(--t1)}
+.cert-h1 em{font-style:normal;color:var(--or)}
 .cert-h2{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:32px}
 .cert-nm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:46px;color:var(--or);line-height:1;margin-bottom:7px}
 .cert-bd{font-size:14px;color:var(--t2);margin-bottom:24px}
@@ -993,7 +993,7 @@ function certificate(){
       <div class="lm" style="width:40px;height:40px;font-size:14px">CAW</div>
       <div style="text-align:left"><div class="cert-co">CAW PROJETOS E CONSULTORIA INDUSTRIAL</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
     </div>
-    <div class="cert-h1">Certifi<em>cado</em> de Conclusão</div>
+    <div class="cert-h1">Certificado de Conclusão</div>
     <div class="cert-h2">Este documento certifica que</div>
     <div class="cert-nm">${CU.name}</div>
     <div class="cert-bd">concluiu com êxito o curso técnico industrial</div>
@@ -1022,6 +1022,44 @@ function printCert(){
   document.getElementById('printArea').style.display='flex';
   window.print();
   setTimeout(()=>document.getElementById('printArea').style.display='none',1000);
+}
+
+function viewUserCert(uid, cid){
+  const u=USERS.find(x=>x.id===uid);
+  const c=COURSES.find(x=>x.id===cid);
+  if(!u || !c) return;
+  const avgScores=c.modules.map(m=>{
+    const atts=(getProgress(uid,cid).quizAttempts[m.id]||[]);
+    const best=atts.reduce((b,a)=>a.score>b.score?a:b,{score:0});
+    return best.score;
+  }).filter(s=>s>0);
+  const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
+  const certHtml=`
+  <div class="cert" id="certBlock">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px">
+      <div class="lm" style="width:40px;height:40px;font-size:14px">CAW</div>
+      <div style="text-align:left"><div class="cert-co">CAW PROJETOS E CONSULTORIA INDUSTRIAL</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
+    </div>
+    <div class="cert-h1">Certificado de Conclusão</div>
+    <div class="cert-h2">Este documento certifica que</div>
+    <div class="cert-nm">${u.name}</div>
+    <div class="cert-bd">concluiu com êxito o curso técnico industrial</div>
+    <div class="cert-cs">${c.title}</div>
+    <div style="font-size:13px;color:var(--t2);margin-bottom:28px">Carga Horária: ${c.hours}h · Nota Final: ${avg} · ${c.modules.length} módulo(s)</div>
+    <div class="cert-ft">
+      <div class="csig"><div class="csln"></div><div class="cssn">Hans</div><div class="cssr">Diretor · CAW Industrial</div></div>
+      <div style="text-align:center">
+        <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:2px">Data de Conclusão</div>
+        <div style="font-weight:800;font-size:14px;color:var(--t1);margin-top:2px">${new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}</div>
+      </div>
+      <div class="csig"><div class="csln"></div><div class="cssn">Geraldo Andrade</div><div class="cssr">Gestor de T&D</div></div>
+    </div>
+  </div>`;
+  page('Visualização de Certificado',`Relatórios — ${u.name}`,`
+  <div style="display:flex;justify-content:center;padding:20px">${certHtml}</div>`,
+  `<button class="btn b-gh" onclick="go('${CU.type==='master'?'mReports':'gReports'}')">← Voltar</button>
+   <button class="btn b-or" onclick="printCert()">🖨 Imprimir / Baixar</button>`);
+  document.getElementById('printArea').innerHTML=certHtml;
 }
 
 /* ════════════════════════════════════════════════════════════════
@@ -1117,7 +1155,7 @@ function gReports(){
   </div>
   <div class="cht"><div class="chtt">Progresso Individual</div>
     <div style="overflow-x:auto"><table class="tbl" style="box-shadow:none;border:none">
-      <thead><tr><th>Colaborador</th><th>Curso</th><th>Progresso</th><th>Aprovações</th><th>Status</th></tr></thead>
+      <thead><tr><th>Colaborador</th><th>Curso</th><th>Progresso</th><th>Aprovações</th><th>Status</th><th style="text-align:right">Ações</th></tr></thead>
       <tbody>${colabors.map(u=>{
         const c=COURSES.find(x=>x.id===u.courseId);
         const pct=c?courseProgress(u.id,c.id):0;
@@ -1129,6 +1167,7 @@ function gReports(){
           <td><div style="display:flex;align-items:center;gap:8px"><div class="pb" style="width:80px;margin:0"><div class="pbf" style="width:${pct}%"></div></div><span style="font-size:12px;font-weight:700;color:var(--or)">${pct}%</span></div></td>
           <td>${c?`${passed}/${c.modules.length} módulos`:'—'}</td>
           <td><span class="bdg ${done?'bdg-ok':pct>0?'bdg-tag':'bdg-off'}">${done?'Concluído':pct>0?'Em andamento':'Não iniciado'}</span></td>
+          <td style="text-align:right">${done?`<button class="b-sm" onclick="viewUserCert('${u.id}','${c.id}')">🎓 Certificado</button>`:'—'}</td>
         </tr>`;}).join('')}
       </tbody>
     </table></div>
@@ -1771,7 +1810,7 @@ function mReports(){
   </div>
   <div class="cht"><div class="chtt">Desempenho Detalhado por Colaborador</div>
   <div style="overflow-x:auto"><table class="tbl" style="box-shadow:none;border:none">
-    <thead><tr><th>Colaborador</th><th>Curso</th><th>Módulos Concluídos</th><th>Progresso</th><th>Melhor Nota</th><th>Status</th></tr></thead>
+    <thead><tr><th>Colaborador</th><th>Curso</th><th>Módulos Concluídos</th><th>Progresso</th><th>Melhor Nota</th><th>Status</th><th style="text-align:right">Ações</th></tr></thead>
     <tbody>${colabors.map(u=>{
       const c=COURSES.find(x=>x.id===u.courseId);
       const pct=c?courseProgress(u.id,c.id):0;
@@ -1789,6 +1828,7 @@ function mReports(){
         <td><div style="display:flex;align-items:center;gap:8px"><div class="pb" style="width:80px;margin:0"><div class="pbf" style="width:${pct}%"></div></div><span style="font-size:12px;font-weight:700;color:var(--or)">${pct}%</span></div></td>
         <td><strong style="color:${parseFloat(best)>=(c?.minScore||7)?'var(--ok)':'var(--err)'}">${best}</strong></td>
         <td><span class="bdg ${done?'bdg-ok':pct>0?'bdg-tag':'bdg-off'}">${done?'Concluído':pct>0?'Em andamento':'Não iniciado'}</span></td>
+        <td style="text-align:right">${done?`<button class="b-sm" onclick="viewUserCert('${u.id}','${c.id}')">🎓 Certificado</button>`:'—'}</td>
       </tr>`;}).join('')}
     </tbody>
   </table></div></div>`);
