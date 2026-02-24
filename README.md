@@ -1881,5 +1881,27 @@ document.addEventListener('keydown',e=>{
   }
 });
 </script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  const supabaseUrl = 'https://cqhsbqnauovtghpujcdc.supabase.co'
+  const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNxaHNicW5hdW92dGdocHVqY2RjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzE5NDYxMTksImV4cCI6MjA4NzUyMjExOX0.yH_9IMj2wS0JOHbSWM1IDBCyPnIre25_eLLQ3CUmnfw'
+
+  const supabase = window.supabase.createClient(supabaseUrl, supabaseKey)
+
+  async function carregarTreinamentos() {
+    const { data, error } = await supabase
+      .from('treinamentos')
+      .select('*')
+
+    if (error) {
+      console.log("Erro:", error)
+    } else {
+      console.log("Dados do banco:", data)
+    }
+  }
+
+  carregarTreinamentos()
+</script>
 </body>
 </html>
