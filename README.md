@@ -30,6 +30,11 @@ img{pointer-events:none;-webkit-user-drag:none;object-position:top}
   height: 80px;
   width: auto;
   display: block;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+  filter: none;
+  opacity: 1;
 }
 .lb{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:2px;color:var(--t1);line-height:1}
 .ls{font-size:9px;font-weight:600;letter-spacing:2.5px;color:var(--or);text-transform:uppercase}
@@ -196,7 +201,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 <div id="landing">
 <nav class="lnav">
   <div class="logo">
-    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/ESmSATFUXiUTaOwq.png?v=2025021501" class="caw-logo" alt="CAW Logo">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/xUFYQovYpnnVueGI.png?v=20250225" class="caw-logo" alt="CAW Logo">
   </div>
   <div class="lnav-links">
     <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="#features">Contato</a>
@@ -235,7 +240,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 </section>
 <footer class="lfoot">
   <div class="logo">
-    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/ESmSATFUXiUTaOwq.png?v=2025021501" class="caw-logo" style="height:60px" alt="CAW Logo">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/xUFYQovYpnnVueGI.png?v=20250225" class="caw-logo" style="height:60px" alt="CAW Logo">
   </div>
   <div class="lfoot-c">© 2025 CAW Projetos e Consultoria Industrial. Todos os direitos reservados.</div>
 </footer>
@@ -246,7 +251,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 <div class="modal">
   <button class="mx" onclick="closeLogin()">×</button>
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px">
-    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/ESmSATFUXiUTaOwq.png?v=2025021501" class="caw-logo" style="height:70px" alt="CAW Logo">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/xUFYQovYpnnVueGI.png?v=20250225" class="caw-logo" style="height:70px" alt="CAW Logo">
     <div>
       <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;letter-spacing:1.5px;color:var(--t1)">CAW Projetos</div>
       <div style="font-size:10px;letter-spacing:2px;color:var(--or);text-transform:uppercase;font-weight:600">Plataforma de Treinamento</div>
@@ -273,7 +278,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 <div class="shell">
   <aside class="sidebar" id="sidebar">
     <div class="sbh">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/ESmSATFUXiUTaOwq.png?v=2025021501" class="caw-logo" style="height:60px" alt="CAW Logo">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/xUFYQovYpnnVueGI.png?v=20250225" class="caw-logo" style="height:60px" alt="CAW Logo">
     </div>
     <div class="sbnav" id="sidebarNav"></div>
     <div class="sbu"><div class="uav" id="uAv">?</div><div><div class="unm" id="uNm">–</div><div class="url" id="uRl">–</div></div></div>
