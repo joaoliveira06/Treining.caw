@@ -194,6 +194,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 /* ═══════════════════════ UTILS ═══════════════════════ */
 .toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--t1);color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;z-index:1000;transition:all .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);opacity:0}
 .toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+
 </style>
 </head>
 <body>
@@ -201,7 +202,7 @@ tr:hover td{background:rgba(255,106,0,.02)}
 <div id="landing">
 <nav class="lnav">
   <div class="logo">
-    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663382731486/xUFYQovYpnnVueGI.png?v=20250225" class="caw-logo" alt="CAW Logo">
+    <img width="426" height="195" alt="image" src="https://github.com/user-attachments/assets/9ae65141-0d8c-45b0-a5c9-ad1a978f11b6" /> class="caw-logo" alt="CAW Logo">
   </div>
   <div class="lnav-links">
     <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="#features">Contato</a>
