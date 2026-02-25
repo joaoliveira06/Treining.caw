@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -19,16 +18,19 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;
-  /* content protection */
   user-select:none;-webkit-user-select:none;
 }
-img{pointer-events:none;-webkit-user-drag:none}
+img{pointer-events:none;-webkit-user-drag:none;object-position:top}
 #landing{display:block}#app{display:none}
 
 /* ═══════════════════════ LANDING NAV ═══════════════════════ */
 .lnav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 60px;height:64px;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--bdr);box-shadow:var(--s1)}
 .logo{display:flex;align-items:center;gap:10px}
-.lm{width:34px;height:34px;background:var(--or);clip-path:polygon(0 0,68% 0,100% 32%,100% 100%,32% 100%,0 68%);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:#fff;flex-shrink:0}
+.caw-logo{
+  height: 36px;
+  width: auto;
+  display: block;
+}
 .lb{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;letter-spacing:2px;color:var(--t1);line-height:1}
 .ls{font-size:9px;font-weight:600;letter-spacing:2.5px;color:var(--or);text-transform:uppercase}
 .lnav-links{display:flex;gap:24px;align-items:center}
@@ -125,228 +127,77 @@ img{pointer-events:none;-webkit-user-drag:none}
 .pgcr{font-size:12px;color:var(--t3);margin-top:2px}.pgb{padding:24px 28px}
 
 /* ═══════════════════════ KPIs ═══════════════════════ */
-.krow{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:22px}
-.kpi{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:18px;box-shadow:var(--s1);position:relative;overflow:hidden;transition:box-shadow .2s}
-.kpi:hover{box-shadow:var(--s2)}.kpi::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--or)}
-.kico{font-size:22px;margin-bottom:8px}
-.kval{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:30px;color:var(--t1);line-height:1}
-.klbl{font-size:11px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-top:2px}
-.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.sh h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;text-transform:uppercase;color:var(--t1)}
-.sha{font-size:12px;font-weight:700;color:var(--or);cursor:pointer}.sha:hover{text-decoration:underline}
+.krow{display:grid;gap:16px;margin-bottom:24px}
+.kpi{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:20px;display:flex;flex-direction:column;align-items:center;text-align:center;transition:all .2s}
+.kpi:hover{border-color:var(--or);box-shadow:var(--s2)}
+.kico{width:44px;height:44px;border-radius:10px;background:var(--or-lt);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:12px}
+.kval{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;color:var(--t1);line-height:1}
+.klbl{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-top:4px}
 
-/* ═══════════════════════ COURSE CARDS ═══════════════════════ */
-.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
-.cc{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;cursor:pointer;transition:all .2s;box-shadow:var(--s1)}
-.cc:hover{transform:translateY(-3px);box-shadow:var(--s3);border-color:var(--or)}
-.cth{height:110px;background:linear-gradient(135deg,#1e293b,#334155);display:flex;align-items:center;justify-content:center;position:relative}
-.cth-ico{font-size:36px;opacity:.55}.ctag{position:absolute;top:8px;right:8px;background:var(--or);color:#fff;font-size:10px;font-weight:700;text-transform:uppercase;padding:3px 8px;border-radius:4px}
-.cbody{padding:14px}
-.ctitle{font-weight:700;font-size:14px;color:var(--t1);margin-bottom:3px;line-height:1.35}
-.cinst{font-size:12px;color:var(--t3);margin-bottom:10px}
-.pb{height:4px;background:var(--bdr);border-radius:3px;overflow:hidden;margin-bottom:5px}
-.pbf{height:100%;background:var(--or);border-radius:3px;transition:width .4s}
-.pi{display:flex;justify-content:space-between;font-size:11px;font-weight:600}
+/* ═══════════════════════ TABLES ═══════════════════════ */
+.tw{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;overflow:hidden;box-shadow:var(--s1)}
+table{width:100%;border-collapse:collapse}
+th{background:var(--surf2);padding:12px 16px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--t3);border-bottom:1px solid var(--bdr)}
+td{padding:14px 16px;font-size:13px;color:var(--t2);border-bottom:1px solid var(--bdr-lt)}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:rgba(255,106,0,.02)}
+
+/* ═══════════════════════ COURSES ═══════════════════════ */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
+.cc{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .2s;display:flex;flex-direction:column;box-shadow:var(--s1)}
+.cc:hover{transform:translateY(-3px);border-color:var(--or);box-shadow:var(--s2)}
+.cth{height:100px;background:linear-gradient(45deg,var(--or),#FF8C40);padding:20px;display:flex;align-items:center;justify-content:space-between;position:relative}
+.cth-ico{font-size:40px;opacity:.9}
+.ctag{background:rgba(255,255,255,.2);backdrop-filter:blur(4px);padding:4px 10px;border-radius:20px;font-size:10px;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:.5px}
+.cbody{padding:20px;flex:1;display:flex;flex-direction:column}
+.ctitle{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:18px;color:var(--t1);line-height:1.2;margin-bottom:8px}
+.cinst{font-size:12px;color:var(--t3);margin-bottom:16px}
+.pb{height:6px;background:var(--bdr-lt);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.pbf{height:100%;background:var(--or);transition:width .4s ease}
+.pi{display:flex;justify-content:space-between;font-size:11px;font-weight:700;margin-bottom:16px}
 .pi-p{color:var(--or)}.pi-m{color:var(--t3)}
-.cpill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:10px;font-weight:700;text-transform:uppercase;margin-top:7px}
-.p-ns{background:var(--bdr-lt);color:var(--t3)}.p-ip{background:var(--or-lt);color:var(--or)}.p-cp{background:rgba(22,163,74,.1);color:#16a34a}
+.cpill{align-self:flex-start;padding:4px 12px;border-radius:20px;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.5px}
+.p-ns{background:var(--bdr-lt);color:var(--t3)}
+.p-ip{background:var(--or-lt);color:var(--or)}
+.p-cp{background:rgba(22,163,74,.1);color:#16a34a}
 
 /* ═══════════════════════ VIEWER ═══════════════════════ */
-.vwr{display:grid;grid-template-columns:270px 1fr;height:calc(100vh - 62px);overflow:hidden}
-.vws{background:var(--surf);border-right:1px solid var(--bdr);overflow-y:auto}
-.vwsh{padding:14px 13px;border-bottom:1px solid var(--bdr)}
-.vwsh h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:14px;text-transform:uppercase;color:var(--t1)}
+.vwr{display:flex;height:calc(100vh - 120px);gap:20px}
+.vws{width:320px;background:var(--surf);border:1px solid var(--bdr);border-radius:12px;display:flex;flex-direction:column;overflow:hidden}
+.vwsh{padding:20px;border-bottom:1px solid var(--bdr);background:var(--surf2)}
+.vwsh h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase}
+.vwc{flex:1;background:var(--surf);border:1px solid var(--bdr);border-radius:12px;overflow-y:auto;position:relative}
 .mg{border-bottom:1px solid var(--bdr-lt)}
-.mgl{padding:9px 13px;font-weight:700;font-size:11px;color:var(--surf);background:#1e293b;display:flex;align-items:center;justify-content:space-between;text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid rgba(255,255,255,.1)}
-.lr{padding:8px 13px 8px 22px;display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t2);cursor:pointer;border-left:3px solid transparent;transition:all .15s;line-height:1.3}
-.lr:hover{background:var(--surf2);color:var(--t1)}
-.lr.active{background:var(--or-lt);color:var(--or);border-left-color:var(--or);font-weight:700}
-.lr.done{color:var(--ok)}.li{font-size:12px;flex-shrink:0}
-.lt{font-size:9px;color:var(--t3);margin-left:auto;text-transform:uppercase;font-weight:700;background:var(--surf2);padding:2px 6px;border-radius:4px;border:1px solid var(--bdr);white-space:nowrap}
-.lr-locked{opacity:.45;cursor:not-allowed!important}
-.lr-locked:hover{background:transparent!important;color:var(--t2)!important}
-.lr-quiz{background:rgba(22,163,74,.04)}
-.lr-quiz.locked{opacity:.45;cursor:not-allowed!important}
-.vwc{overflow-y:auto;background:var(--bg)}
-.vci{padding:24px 32px;max-width:820px}
-.vbox{width:100%;aspect-ratio:16/9;background:linear-gradient(135deg,#0f172a,#1e293b);border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;margin-bottom:20px;overflow:hidden;box-shadow:var(--s2)}
-.vplay{width:60px;height:60px;background:var(--or);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;cursor:pointer;transition:transform .2s;box-shadow:0 0 0 10px rgba(255,106,0,.15)}
-.vplay:hover{transform:scale(1.1)}
-.vcap{margin-top:12px;color:rgba(255,255,255,.4);font-size:13px}
-.vttl{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--t1);margin-bottom:6px}
-.vmeta{font-size:13px;color:var(--t3);margin-bottom:16px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-.vtxt{font-size:15px;color:var(--t2);line-height:1.8;margin-bottom:20px}
+.mgl{padding:12px 20px;background:var(--surf2);font-size:12px;font-weight:700;color:var(--t2);display:flex;align-items:center;justify-content:space-between}
+.lr{padding:12px 20px;display:flex;align-items:center;gap:10px;cursor:pointer;font-size:13px;color:var(--t2);transition:all .15s;border-left:3px solid transparent}
+.lr:hover{background:var(--or-lt)}
+.lr.active{background:var(--or-lt);color:var(--or);font-weight:700;border-left-color:var(--or)}
+.lr.done .li{color:var(--ok)}
+.lr-locked{opacity:.5;cursor:not-allowed}
+.lr-quiz{background:rgba(255,106,0,.03);border-top:1px dashed var(--bdr)}
+.vci{padding:30px}
+.vbox{width:100%;aspect-ratio:16/9;background:#000;border-radius:8px;margin-bottom:24px;overflow:hidden}
+.vtxt{font-size:15px;line-height:1.8;color:var(--t2)}
+.vtxt h2{color:var(--t1);margin:24px 0 12px;font-family:'Barlow Condensed',sans-serif;font-weight:800;text-transform:uppercase}
+.vnav{margin-top:40px;padding-top:24px;border-top:1px solid var(--bdr);display:flex;justify-content:space-between}
 
-/* Protected PDF viewer */
-.pdf-protected{width:100%;height:520px;border:1px solid var(--bdr);border-radius:8px;overflow:hidden;background:#2d2d2d;position:relative;margin-bottom:16px}
-.pdf-protected embed,.pdf-protected iframe{width:100%;height:100%;border:none;pointer-events:auto}
-.pdf-toolbar-block{position:absolute;bottom:0;left:0;right:0;height:40px;background:rgba(45,45,45,.95);z-index:5}
-.pdfrow{background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:13px 16px;margin-bottom:10px;display:flex;align-items:center;gap:12px;box-shadow:var(--s1)}
-.pdfrow-ico{font-size:26px}.pdfrow-info h4{font-weight:700;font-size:14px;color:var(--t1)}.pdfrow-info p{font-size:12px;color:var(--t3);margin-top:2px}
+/* ═══════════════════════ FORMS ═══════════════════════ */
+.fgrp{margin-bottom:16px}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;margin-top:32px}
+.sh h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:20px;text-transform:uppercase;color:var(--t1)}
 
-/* ═══════════════════════ QUIZ ═══════════════════════ */
-.qcard{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:26px;max-width:680px;box-shadow:var(--s1)}
-.qhead{margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid var(--bdr-lt)}
-.qhead h2{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:22px;text-transform:uppercase;color:var(--t1)}
-.qhead p{font-size:13px;color:var(--t3);margin-top:4px}
-.qb{margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--bdr-lt)}.qb:last-of-type{border-bottom:none}
-.qn{font-size:11px;font-weight:700;color:var(--or);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px}
-.qt{font-size:15px;font-weight:600;color:var(--t1);margin-bottom:12px;line-height:1.55}
-.opt{display:flex;align-items:center;gap:10px;padding:11px 14px;border:1.5px solid var(--bdr);border-radius:8px;margin-bottom:7px;cursor:pointer;transition:all .15s;font-size:14px;color:var(--t2)}
-.opt:hover{border-color:var(--or);background:var(--or-lt);color:var(--t1)}
-.opt.sel{border-color:var(--or);background:var(--or-lt);color:var(--t1);font-weight:600}
-.opt.ok{border-color:#16a34a;background:rgba(22,163,74,.08);color:#15803d}
-.opt.err{border-color:#dc2626;background:rgba(220,38,38,.06);color:#dc2626}
-.ol{width:26px;height:26px;border:2px solid var(--bdr);border-radius:6px;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;flex-shrink:0}
-.opt.sel .ol{border-color:var(--or);background:var(--or);color:#fff}
-.opt.ok .ol{border-color:#16a34a;background:#16a34a;color:#fff}
-.opt.err .ol{border-color:#dc2626;background:#dc2626;color:#fff}
-.qfoot{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:22px;padding-top:18px;border-top:1px solid var(--bdr-lt)}
-.qprog{font-size:12px;color:var(--t3);font-weight:600}
-.resbox{text-align:center;padding:36px 28px}
-.resc{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:72px;line-height:1;margin-bottom:6px}
-.resc.pass{color:#16a34a}.resc.fail{color:#dc2626}
-.ressub{font-size:13px;font-weight:600;color:var(--t3);text-transform:uppercase;letter-spacing:2px}
-.resmsg{font-size:15px;color:var(--t2);margin:14px 0 22px;line-height:1.6}
-
-/* Attempts history */
-.attempt-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--surf);border:1px solid var(--bdr);border-radius:8px;margin-bottom:8px}
-.att-score{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px}
-.att-score.pass{color:#16a34a}.att-score.fail{color:#dc2626}
-
-/* ═══════════════════════ CERTIFICATE ═══════════════════════ */
-.cert{background:#fff;border:6px solid var(--t1);padding:46px;max-width:780px;margin:0 auto;position:relative;text-align:center;box-shadow:var(--s3)}
-.cert::before{content:'';position:absolute;inset:8px;border:2px solid var(--or);pointer-events:none}
-.cert-co{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;letter-spacing:3px;color:var(--t1)}
-.cert-cos{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:30px}
-.cert-h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:42px;text-transform:uppercase;letter-spacing:3px;color:var(--t1);margin-bottom:4px}
-.cert-h1 em{font-style:normal;color:var(--or)}
-.cert-h2{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--t3);margin-bottom:32px}
-.cert-nm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:46px;color:var(--or);line-height:1;margin-bottom:7px}
-.cert-bd{font-size:14px;color:var(--t2);margin-bottom:24px}
-.cert-cs{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:23px;text-transform:uppercase;color:var(--t1);border-top:2px solid var(--or);border-bottom:2px solid var(--or);padding:9px 0;display:inline-block;margin-bottom:32px}
-.cert-ft{display:flex;justify-content:space-between;align-items:flex-end;padding-top:28px;border-top:1px solid var(--bdr)}
-.csig{text-align:center}.csln{width:130px;height:1px;background:var(--t1);margin:0 auto 5px}
-.cssn{font-weight:700;font-size:12px;color:var(--t1)}.cssr{font-size:11px;color:var(--t3)}
-
-/* ═══════════════════════ TABLE ═══════════════════════ */
-.tbl{width:100%;border-collapse:collapse;background:var(--surf);border-radius:10px;overflow:hidden;border:1px solid var(--bdr);box-shadow:var(--s1)}
-.tbl th{background:var(--surf2);padding:11px 14px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--bdr)}
-.tbl td{padding:12px 14px;font-size:14px;color:var(--t2);border-bottom:1px solid var(--bdr-lt);vertical-align:middle}
-.tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:var(--surf2)}
-
-/* ═══════════════════════ CHART ═══════════════════════ */
-.cht{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:18px;box-shadow:var(--s1)}
-.chtt{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:15px;text-transform:uppercase;color:var(--t1);margin-bottom:16px}
-.bch{display:flex;align-items:flex-end;gap:8px;height:120px}
-.bg{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px}
-.bar{width:100%;background:var(--or);border-radius:3px 3px 0 0;opacity:.8;transition:opacity .2s;min-width:22px}
-.bar:hover{opacity:1}.brl{font-size:10px;color:var(--t3);font-weight:600;text-align:center}
-
-/* ═══════════════════════ RANKING ═══════════════════════ */
-.rkr{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--surf);border:1px solid var(--bdr);border-radius:10px;margin-bottom:7px;box-shadow:var(--s1);transition:box-shadow .15s}
-.rkr:hover{box-shadow:var(--s2)}.rkp{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;color:var(--bdr);width:34px;text-align:center}.rkp.top{color:var(--or)}
-.rkav{width:34px;height:34px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;color:#fff;flex-shrink:0}
-.rknm{font-weight:700;font-size:14px;color:var(--t1)}.rkdt{font-size:12px;color:var(--t3)}.rksc{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;color:var(--or)}
-
-/* ═══════════════════════ SECURITY ═══════════════════════ */
-.sec-info{background:var(--surf);border:1px solid var(--bdr);border-radius:10px;padding:20px;box-shadow:var(--s1);margin-bottom:16px}
-.sec-info h3{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:17px;text-transform:uppercase;color:var(--t1);margin-bottom:14px;padding-bottom:11px;border-bottom:1px solid var(--bdr-lt)}
-.sec-item{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--bdr-lt)}.sec-item:last-child{border-bottom:none}
-.sec-item-info{display:flex;align-items:center;gap:10px}.sec-item-ico{font-size:18px;width:22px;text-align:center}
-.sec-item-label{font-size:14px;font-weight:600;color:var(--t1)}.sec-item-desc{font-size:12px;color:var(--t3)}
-.sec-ok{color:var(--ok);font-size:11px;font-weight:700;background:rgba(22,163,74,.1);padding:3px 9px;border-radius:20px}
-.sec-warn{color:var(--warn);font-size:11px;font-weight:700;background:#FEF3C7;padding:3px 9px;border-radius:20px}
-
-/* ═══════════════════════ FORM SYSTEM ═══════════════════════ */
-.fcard{background:var(--surf);border:1px solid var(--bdr);border-radius:12px;padding:24px;box-shadow:var(--s1)}
-.form-section-label{display:flex;align-items:center;gap:10px;font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:16px;text-transform:uppercase;letter-spacing:1px;color:var(--t1);margin-bottom:22px;padding-bottom:14px;border-bottom:2px solid var(--bdr-lt)}
-.form-section-num{width:26px;height:26px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:900;flex-shrink:0}
-.form-label{display:block;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--t2);margin-bottom:8px}
-.form-req{color:var(--err);margin-left:2px}
-.form-hint{display:block;font-size:12px;color:var(--t3);margin-top:5px;font-weight:400;text-transform:none;letter-spacing:0;line-height:1.5}
-.form-input{width:100%;background:var(--surf);border:1.5px solid var(--bdr);border-radius:8px;padding:13px 15px;color:var(--t1);font-family:'Barlow',sans-serif;font-size:15px;outline:none;transition:border-color .2s,box-shadow .2s}
-.form-input:focus{border-color:var(--or);box-shadow:0 0 0 3px rgba(255,106,0,.1);background:#fff}
-.form-input::placeholder{color:var(--t3)}
-.form-input option{background:#fff;color:var(--t1)}
-.form-input-with-unit{position:relative;display:flex;align-items:center}
-.form-input-with-unit .form-input{padding-right:54px}
-.form-unit{position:absolute;right:14px;font-size:12px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:.5px;pointer-events:none}
-.form-cols-2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.form-cols-3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px}
-.form-preview-bar{display:flex;align-items:stretch;background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;overflow:hidden}
-.fpb-item{flex:1;display:flex;flex-direction:column;align-items:center;padding:14px 10px;border-right:1px solid var(--bdr)}.fpb-item:last-child{border-right:none}
-.fpb-ico{font-size:20px;margin-bottom:5px}
-.fpb-val{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;color:var(--or);line-height:1}
-.fpb-lbl{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--t3);margin-top:3px;text-align:center}
-.form-info-box{display:flex;align-items:flex-start;gap:12px;background:var(--or-lt);border:1px solid rgba(255,106,0,.2);border-radius:8px;padding:14px 16px}
-.form-info-box strong{display:block;font-size:13px;color:var(--t1);margin-bottom:3px}
-.form-info-box p{font-size:13px;color:var(--t2);line-height:1.6;margin:0}
-.form-actions{display:flex;justify-content:flex-end;gap:10px;padding:20px 0 6px;border-top:2px solid var(--bdr-lt);margin-top:6px}
-
-/* ═══════════════════════ ACCESS CARDS ═══════════════════════ */
-.access-card{border:2px solid var(--bdr);border-radius:10px;padding:16px;text-align:center;cursor:pointer;transition:all .2s;background:var(--surf)}
-.access-card:hover{border-color:var(--or);background:var(--or-lt)}
-.access-card-active{border-color:var(--or)!important;background:var(--or-lt)!important;box-shadow:0 0 0 3px rgba(255,106,0,.15)}
-
-/* ═══════════════════════ MODULE BUILDER ═══════════════════════ */
-.module-block{background:var(--surf);border:2px solid var(--bdr);border-radius:12px;margin-bottom:16px;overflow:hidden;transition:border-color .2s}
-.module-block:hover{border-color:rgba(255,106,0,.3)}
-.module-header{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--surf2);border-bottom:1px solid var(--bdr)}
-.mod-num{width:28px;height:28px;border-radius:50%;background:var(--or);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0}
-.mod-title-inp{flex:1;background:#fff;border:1.5px solid var(--bdr);border-radius:7px;padding:9px 13px;font-family:'Barlow',sans-serif;font-size:15px;font-weight:600;color:var(--t1);outline:none;transition:border-color .2s}
-.mod-title-inp:focus{border-color:var(--or)}
-.module-body{padding:16px;display:flex;flex-direction:column;gap:14px}
-.mod-section{background:var(--surf2);border:1px solid var(--bdr);border-radius:8px;padding:14px}
-.mod-section-hd{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px}
-.lessons-list,.questions-list{display:flex;flex-direction:column;gap:10px}
-.list-empty{font-size:13px;color:var(--t3);text-align:center;padding:16px;background:var(--surf);border-radius:6px;border:1px dashed var(--bdr)}
-.lesson-item{display:flex;align-items:flex-start;gap:10px;background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:12px;transition:border-color .15s}
-.lesson-item:hover{border-color:rgba(255,106,0,.3)}
-.lesson-item-left{display:flex;align-items:flex-start;gap:10px;flex:1;min-width:0}
-.lesson-type-ico{font-size:22px;margin-top:2px;flex-shrink:0}
-.lesson-type-tag{background:var(--or-lt);color:var(--or);font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:2px 8px;border-radius:10px;border:1px solid rgba(255,106,0,.2);white-space:nowrap}
-.lesson-upload-row{display:flex;align-items:center;margin-top:7px;flex-wrap:wrap;gap:6px}
-.lesson-upload-btn{display:inline-flex;align-items:center;gap:5px;background:var(--surf2);border:1.5px solid var(--bdr);border-radius:6px;padding:6px 12px;font-size:12px;font-weight:700;color:var(--t2);cursor:pointer;transition:all .15s}
-.lesson-upload-btn:hover{border-color:var(--or);color:var(--or);background:var(--or-lt)}
-.question-item{background:var(--surf);border:1px solid var(--bdr);border-radius:8px;padding:14px;transition:border-color .15s}
-.question-item:hover{border-color:rgba(255,106,0,.3)}
-.q-num{min-width:26px;height:26px;border-radius:50%;background:var(--surf2);border:1.5px solid var(--bdr);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t2);flex-shrink:0}
-.course-tag{background:var(--or-lt);color:var(--or);font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;border:1px solid rgba(255,106,0,.2);display:inline-block}
-
-/* ═══════════════════════ TOAST ═══════════════════════ */
-.toast{position:fixed;bottom:18px;right:18px;z-index:9999;background:var(--t1);color:#fff;padding:11px 18px;border-radius:8px;border-left:4px solid var(--or);font-size:13px;font-weight:600;display:none;box-shadow:var(--s3);max-width:360px;animation:tin .3s ease}
-@keyframes tin{from{transform:translateY(8px);opacity:0}to{transform:translateY(0);opacity:1}}
-.toast.show{display:block}
-
-/* ═══════════════════════ PRINT (certificate only) ═══════════════════════ */
-@media print{
-  body *{visibility:hidden}
-  #printArea,#printArea *{visibility:visible}
-  #printArea{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:#fff}
-}
-
-/* ═══════════════════════ RESPONSIVE ═══════════════════════ */
-@media(max-width:900px){
-  .lnav,.lfoot{padding-left:18px;padding-right:18px}
-  .hero{padding:100px 18px 60px}
-  .sstrip{grid-template-columns:repeat(2,1fr);margin:34px 18px 0}
-  .sec{padding:56px 18px}
-  .fgrid{grid-template-columns:1fr}
-  .lfoot{flex-direction:column;gap:8px;text-align:center}
-  .sidebar{display:none}
-  .krow{grid-template-columns:repeat(2,1fr)}
-  .cgrid{grid-template-columns:1fr}
-  .form-cols-2,.form-cols-3{grid-template-columns:1fr}
-  .vwr{grid-template-columns:1fr}
-}
+/* ═══════════════════════ UTILS ═══════════════════════ */
+.toast{position:fixed;bottom:30px;left:50%;transform:translateX(-50%) translateY(100px);background:var(--t1);color:#fff;padding:12px 24px;border-radius:8px;font-size:13px;font-weight:600;z-index:1000;transition:all .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);opacity:0}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
 </style>
 </head>
 <body>
 <!-- ════════════════════════════════════════════════════════ LANDING ════ -->
 <div id="landing">
 <nav class="lnav">
-  <div class="logo"><div class="lm">CAW</div><div><div class="lb">CAW</div><div class="ls">Projetos &amp; Consultoria</div></div></div>
+  <div class="logo">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183349367/iiGZvzRMeuFOKbVf.png" class="caw-logo" alt="CAW Logo">
+  </div>
   <div class="lnav-links">
     <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="#features">Contato</a>
     <button class="btn b-or" style="padding:9px 20px;font-size:12px" onclick="openLogin()">Acessar →</button>
@@ -362,10 +213,10 @@ img{pointer-events:none;-webkit-user-drag:none}
     <button class="btn b-gh" onclick="demoLogin('hans','Hans7411')">Demo Master</button>
   </div>
   <div class="sstrip">
-    <div class="si"><div class="sn">48+</div><div class="sl">Cursos Ativos</div></div>
-    <div class="si"><div class="sn">320</div><div class="sl">Colaboradores</div></div>
+    <div class="si"><div class="sn">20+</div><div class="sl">Cursos Ativos</div></div>
+    <div class="si"><div class="sn">1000+</div><div class="sl">Colaboradores</div></div>
     <div class="si"><div class="sn">94%</div><div class="sl">Aprovação</div></div>
-    <div class="si"><div class="sn">1.2k</div><div class="sl">Certificados</div></div>
+    <div class="si"><div class="sn">-</div><div class="sl">Certificados</div></div>
   </div>
 </section>
 <section class="fsec" id="features">
@@ -383,7 +234,9 @@ img{pointer-events:none;-webkit-user-drag:none}
   </div>
 </section>
 <footer class="lfoot">
-  <div class="logo"><div class="lm" style="width:28px;height:28px;font-size:10px">CAW</div><div><div class="lb" style="font-size:15px">CAW Projetos</div><div class="ls">Consultoria Industrial</div></div></div>
+  <div class="logo">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183349367/iiGZvzRMeuFOKbVf.png" class="caw-logo" style="height:28px" alt="CAW Logo">
+  </div>
   <div class="lfoot-c">© 2025 CAW Projetos e Consultoria Industrial. Todos os direitos reservados.</div>
 </footer>
 </div>
@@ -393,9 +246,11 @@ img{pointer-events:none;-webkit-user-drag:none}
 <div class="modal">
   <button class="mx" onclick="closeLogin()">×</button>
   <div style="display:flex;align-items:center;gap:10px;margin-bottom:22px">
-    <div class="lm" style="width:32px;height:32px;font-size:11px">CAW</div>
-    <div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;letter-spacing:1.5px;color:var(--t1)">CAW Projetos</div>
-    <div style="font-size:10px;letter-spacing:2px;color:var(--or);text-transform:uppercase;font-weight:600">Plataforma de Treinamento</div></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183349367/iiGZvzRMeuFOKbVf.png" class="caw-logo" style="height:30px" alt="CAW Logo">
+    <div>
+      <div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;letter-spacing:1.5px;color:var(--t1)">CAW Projetos</div>
+      <div style="font-size:10px;letter-spacing:2px;color:var(--or);text-transform:uppercase;font-weight:600">Plataforma de Treinamento</div>
+    </div>
   </div>
   <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;color:var(--t1);margin-bottom:5px">Acesso à Plataforma</h2>
   <p style="font-size:14px;color:var(--t2);margin-bottom:18px">Entre com suas credenciais corporativas.</p>
@@ -417,7 +272,9 @@ img{pointer-events:none;-webkit-user-drag:none}
 <div id="app">
 <div class="shell">
   <aside class="sidebar" id="sidebar">
-    <div class="sbh"><div class="logo"><div class="lm" style="width:28px;height:28px;font-size:10px">CAW</div><div><div class="lb" style="font-size:14px">CAW</div><div class="ls" style="font-size:8px">Treinamento</div></div></div></div>
+    <div class="sbh">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663183349367/iiGZvzRMeuFOKbVf.png" class="caw-logo" style="height:28px" alt="CAW Logo">
+    </div>
     <div class="sbnav" id="sidebarNav"></div>
     <div class="sbu"><div class="uav" id="uAv">?</div><div><div class="unm" id="uNm">–</div><div class="url" id="uRl">–</div></div></div>
   </aside>
@@ -432,76 +289,52 @@ img{pointer-events:none;-webkit-user-drag:none}
 /* ════════════════════════════════════════════════════════════════
    DATA LAYER
 ════════════════════════════════════════════════════════════════ */
-let CU = null; // current user
+let CU = null;
 
-// ── COURSES ──────────────────────────────────────────────────────
 const DEFAULT_COURSES = [
   { id:1, title:'NR-12: Segurança em Máquinas', instructor:'Eng. Carlos Mendes', category:'Segurança', ico:'⚙️', hours:16, minScore:7.0, maxAttempts:3, sequential:true,
     modules:[
       { id:1, order:1, title:'Fundamentos da NR-12',
         lessons:[
           {id:1,title:'Introdução à NR-12',type:'pdf',url:'',text:'A NR-12 estabelece os requisitos mínimos para prevenção de acidentes em máquinas e equipamentos industriais. É obrigatória para todos os setores que utilizem máquinas.'},
-          {id:2,title:'Zonas de Perigo e Risco',type:'video',url:'',text:'Identificação e classificação de zonas de perigo conforme a norma. Compreenda como mapear os riscos na sua área.'},
+          {id:2,title:'Zonas de Perigo e Risco',type:'video',url:'',text:'Identificação e classification de zonas de perigo conforme a norma. Compreenda como mapear os riscos na sua área.'},
         ],
         quiz:{ title:'Avaliação — Módulo 1', minScore:7.0, maxAttempts:3, questions:[
           {id:1,txt:'O que é considerado zona de perigo conforme a NR-12?',opts:['Área de manutenção','Local de descanso','Espaço com risco de acidente por parte móvel','Corredor de saída'],ok:2},
           {id:2,txt:'A NR-12 se aplica a:',opts:['Apenas máquinas pesadas','Todos os equipamentos e máquinas industriais','Somente equipamentos elétricos','Apenas tornos CNC'],ok:1},
         ]}
-      },
-      { id:2, order:2, title:'EPIs e Procedimentos de Bloqueio',
-        lessons:[
-          {id:3,title:'EPIs Obrigatórios',type:'pdf',url:'',text:'Equipamentos de proteção individual exigidos pela NR-12. Luvas, óculos, calçado de segurança e protetor auditivo são essenciais.'},
-          {id:4,title:'Lockout/Tagout',type:'pdf',url:'',text:'Procedimento de bloqueio e etiquetagem de energia para manutenção segura de máquinas.'},
-        ],
-        quiz:{ title:'Avaliação — Módulo 2', minScore:7.0, maxAttempts:3, questions:[
-          {id:1,txt:'Qual EPI é obrigatório para operadores de máquinas?',opts:['Apenas luvas','Luvas, óculos e calçado de segurança','Somente capacete','Nenhum EPI'],ok:1},
-          {id:2,txt:'Lockout/Tagout é um procedimento de:',opts:['Limpeza de máquinas','Bloqueio de energia para manutenção segura','Calibração de equipamentos','Registro de produção'],ok:1},
-        ]}
-      },
+      }
     ]
   },
-  { id:2, title:'Operação de Torno CNC', instructor:'Téc. Roberto Alves', category:'Técnico', ico:'🔩', hours:20, minScore:7.0, maxAttempts:3, sequential:true,
+  { id:2, title:'Eficiência Energética em Sistemas de Ar Comprimido', instructor:'Eng. Roberto Silva', category:'Energia', ico:'⚡', hours:12, minScore:7.0, maxAttempts:3, sequential:true,
     modules:[
-      { id:1, order:1, title:'Fundamentos do CNC',
+      { id:1, order:1, title:'Geração e Tratamento',
         lessons:[
-          {id:1,title:'Introdução ao CNC',type:'video',url:'',text:'Componentes, funcionamento e tipos de torno CNC utilizados na indústria.'},
-          {id:2,title:'Linguagem G-Code',type:'pdf',url:'',text:'Fundamentos de programação CNC: funções G e M, coordenadas e ciclos fixos.'},
+          {id:1,title:'Tipos de Compressores',type:'pdf',url:'',text:'Visão geral sobre compressores de pistão, parafuso e centrífugos.'},
         ],
         quiz:{ title:'Avaliação — Módulo 1', minScore:7.0, maxAttempts:3, questions:[
-          {id:1,txt:'O que é G-Code?',opts:['Sistema operacional','Linguagem de programação CNC','Software CAD','Protocolo de comunicação'],ok:1},
+          {id:1,txt:'Qual tipo de compressor é mais comum em indústrias para uso contínuo?',opts:['Pistão','Parafuso','Manual','Bomba'],ok:1},
         ]}
-      },
-      { id:2, order:2, title:'Operação Prática',
-        lessons:[
-          {id:3,title:'Configuração de Parâmetros',type:'pdf',url:'',text:'Definição de velocidade de corte, avanço e profundidade para diferentes materiais.'},
-          {id:4,title:'Usinagem Demonstrativa',type:'video',url:'',text:'Demonstração prática de usinagem de uma peça cilíndrica do zero ao produto acabado.'},
-        ],
-        quiz:{ title:'Avaliação — Módulo 2', minScore:7.0, maxAttempts:3, questions:[
-          {id:1,txt:'A velocidade do fuso no CNC é controlada pelo código:',opts:['G-code (G)','Velocidade (F)','Spindle speed (S)','Depth (D)'],ok:2},
-        ]}
-      },
+      }
     ]
   },
-  { id:3, title:'Gestão da Qualidade ISO 9001', instructor:'Esp. Carla Souza', category:'Qualidade', ico:'🏅', hours:12, minScore:7.0, maxAttempts:3, sequential:false,
+  { id:3, title:'Gestão de Manutenção Industrial', instructor:'Eng. Marcos Oliveira', category:'Gestão', ico:'🛠️', hours:20, minScore:7.0, maxAttempts:3, sequential:true,
     modules:[
-      { id:1, order:1, title:'Princípios da ISO 9001',
+      { id:1, order:1, title:'Estratégias de Manutenção',
         lessons:[
-          {id:1,title:'Os 7 Princípios da Qualidade',type:'pdf',url:'',text:'Os sete princípios de gestão da qualidade conforme ISO 9001:2015: foco no cliente, liderança, engajamento, abordagem por processo, melhoria, decisão baseada em evidência e gestão de relacionamento.'},
-          {id:2,title:'Auditorias Internas',type:'video',url:'',text:'Como planejar e conduzir auditorias internas de qualidade com eficácia.'},
+          {id:1,title:'Preventiva vs Preditiva',type:'pdf',url:'',text:'Diferenças fundamentais e quando aplicar cada estratégia para otimizar custos.'},
         ],
-        quiz:{ title:'Avaliação Final', minScore:7.0, maxAttempts:3, questions:[
-          {id:1,txt:'Quantos princípios de gestão a ISO 9001:2015 define?',opts:['5','6','7','8'],ok:2},
-          {id:2,txt:'Qual princípio coloca o cliente como prioridade?',opts:['Liderança','Foco no cliente','Melhoria','Engajamento'],ok:1},
+        quiz:{ title:'Avaliação — Módulo 1', minScore:7.0, maxAttempts:3, questions:[
+          {id:1,txt:'A manutenção preditiva baseia-se em:',opts:['Tempo de uso','Quebra inesperada','Monitoramento de condições','Troca de peças novas'],ok:2},
         ]}
-      },
+      }
     ]
-  },
+  }
 ];
 
 let COURSES = JSON.parse(localStorage.getItem('caw_courses')||'null') || DEFAULT_COURSES;
 function saveCourses(){ localStorage.setItem('caw_courses', JSON.stringify(COURSES)); }
 
-// ── USERS ─────────────────────────────────────────────────────────
 const DEFAULT_USERS = [
   { id:1, name:'Hans', login:'hans', pass:'Hans7411', role:'Diretor', sector:'Diretoria', type:'master', ini:'H', color:'#92400E', courseId:null, active:true },
   { id:2, name:'Geraldo Andrade', login:'geraldo', pass:'Ger@2025', role:'Gestor de T&D', sector:'Gestão', type:'gestor', ini:'GA', color:'#5B21B6', courseId:null, active:true },
@@ -512,8 +345,6 @@ const DEFAULT_USERS = [
 let USERS = JSON.parse(localStorage.getItem('caw_users')||'null') || DEFAULT_USERS;
 function saveUsers(){ localStorage.setItem('caw_users', JSON.stringify(USERS)); }
 
-// ── PROGRESS ──────────────────────────────────────────────────────
-// Structure: { [userId]: { [courseId]: { completedLessons:[], quizAttempts:{ [modId]:[{score,date,pass}] } } } }
 let PROGRESS = JSON.parse(localStorage.getItem('caw_progress')||'{}');
 function saveProgress(){ localStorage.setItem('caw_progress', JSON.stringify(PROGRESS)); }
 
@@ -573,7 +404,13 @@ function launchApp(){
   else if(CU.type==='gestor') go('gDash');
   else go('dashboard');
 }
-function logout(){ CU=null; document.getElementById('landing').style.display='block'; document.getElementById('app').style.display='none'; }
+
+function logout(){
+  CU=null;
+  document.getElementById('app').style.display='none';
+  document.getElementById('landing').style.display='block';
+  window.scrollTo(0,0);
+}
 
 /* ════════════════════════════════════════════════════════════════
    SIDEBAR
@@ -666,13 +503,8 @@ function cc(c, uid){
    COLABORADOR PAGES
 ════════════════════════════════════════════════════════════════ */
 function dashboard(){
-  // Colaborador only sees their assigned course
-  const userCourses = CU.courseId
-    ? COURSES.filter(c=>c.id===CU.courseId)
-    : COURSES;
+  const userCourses = CU.courseId ? COURSES.filter(c=>c.id===CU.courseId) : COURSES;
   const done=userCourses.filter(c=>isCourseComplete(CU.id,c.id)).length;
-  page('Dashboard','Meu painel de aprendizado','',
-    `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('myCourses')">Meus Cursos</button>`);
   document.getElementById('main').innerHTML=`
   <div class="pgh"><div><h1>Dashboard</h1><div class="pgcr">Meu painel de aprendizado</div></div></div>
   <div class="pgb">
@@ -703,7 +535,6 @@ function courseViewer(){
   const pct = courseProgress(uid,cid);
   const modules = c.modules||[];
 
-  // Build sidebar
   let sbHtml='';
   modules.forEach((m,mi)=>{
     const prevOk = mi===0 || (isModuleLessonsDone(uid,cid,modules[mi-1]) && isModulePassed(uid,cid,modules[mi-1].id));
@@ -725,7 +556,6 @@ function courseViewer(){
         <span class="lt">${ico} ${l.type.toUpperCase()}</span>
       </div>`;
     });
-    // Quiz row
     const qLocked = modLocked || !allLessDone;
     const atts = prog.quizAttempts[m.id]||[];
     const bestAtt = atts.reduce((b,a)=>(!b||a.score>b.score)?a:b, null);
@@ -761,7 +591,6 @@ function courseViewer(){
     </div></div>
   </div>`;
 
-  // Auto-select first incomplete lesson
   for(const m of modules){
     for(const l of m.lessons){
       if(!isLessonDone(uid,cid,m.id,l.id)){
@@ -779,9 +608,7 @@ function showLesson(cid,mid,lid){
   document.querySelectorAll('.lr').forEach(e=>e.classList.remove('active'));
   document.getElementById(`vl-${mid}-${lid}`)?.classList.add('active');
 
-  const ico=l.type==='pdf'?'📄':l.type==='video'?'🎬':'📎';
   let mediaHtml='';
-
   if(l.type==='video'){
     if(l.url){
       let src=l.url;
@@ -789,1059 +616,357 @@ function showLesson(cid,mid,lid){
       if(yt) src=`https://www.youtube.com/embed/${yt[1]}`;
       mediaHtml=`<div class="vbox"><iframe src="${src}" style="width:100%;height:100%;border:none" allowfullscreen></iframe></div>`;
     } else {
-      mediaHtml=`<div class="vbox"><div class="vplay" onclick="toast('▶ Reproduzindo: ${l.title}')">▶</div><div class="vcap">${l.title}</div></div>`;
+      mediaHtml=`<div class="vbox" style="display:flex;align-items:center;justify-content:center;color:#fff;flex-direction:column;gap:10px">
+        <div style="font-size:40px">🎥</div><div>Vídeo não disponível</div>
+      </div>`;
     }
   } else if(l.type==='pdf'){
-    if(l.url){
-      // Protected PDF: block download bar, disable right-click
-      mediaHtml=`
-      <div class="pdf-protected" oncontextmenu="return false">
-        <embed src="${l.url}#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&view=FitH" type="application/pdf" style="width:100%;height:100%;border:none">
-        <div class="pdf-toolbar-block"></div>
-      </div>
-      <div class="pdfrow">
-        <div class="pdfrow-ico">🔒</div>
-        <div class="pdfrow-info"><h4>${l.title}</h4><p>Visualização protegida — download não disponível</p></div>
-      </div>`;
-    } else {
-      mediaHtml=`<div class="pdfrow"><div class="pdfrow-ico">📄</div><div class="pdfrow-info"><h4>${l.title}</h4><p style="color:var(--t3)">Material aguardando upload pelo administrador</p></div></div>`;
-    }
-  } else {
-    mediaHtml=`<div class="pdfrow"><div class="pdfrow-ico">${ico}</div><div class="pdfrow-info"><h4>${l.title}</h4><p>Material complementar</p></div></div>`;
+    mediaHtml=`<div class="vbox" style="aspect-ratio:auto;height:600px">
+      <iframe src="${l.url||'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf'}#toolbar=0" style="width:100%;height:100%;border:none"></iframe>
+    </div>`;
   }
 
-  const done=isLessonDone(CU.id,cid,mid,lid);
   document.getElementById('lessonArea').innerHTML=`
-  <div class="vttl">${l.title}</div>
-  <div class="vmeta">
-    <span style="background:var(--or-lt);color:var(--or);font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px;border:1px solid rgba(255,106,0,.2)">📦 ${m.title}</span>
-    <span>👤 ${c.instructor}</span>
-  </div>
-  ${mediaHtml}
-  ${l.text?`<p class="vtxt">${l.text}</p>`:''}
-  <div style="display:flex;gap:10px;margin-top:18px;padding-top:16px;border-top:1px solid var(--bdr-lt)">
-    ${done
-      ? `<button class="btn b-ok" style="cursor:default">✅ Aula Concluída</button>`
-      : `<button class="btn b-or" onclick="markLessonDone(${cid},${mid},${lid})">✓ Marcar como Concluída</button>`
-    }
-  </div>`;
+    <div class="seye">${m.title} · Aula ${l.id}</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;margin-bottom:20px">${l.title}</h2>
+    ${mediaHtml}
+    <div class="vtxt">${l.text||'Nenhum texto adicional para esta aula.'}</div>
+    <div class="vnav">
+      <button class="btn b-gh" style="opacity:0;pointer-events:none">Anterior</button>
+      <button class="btn b-ok" onclick="completeLesson(${cid},${mid},${lid})">Concluir Aula e Continuar ✅</button>
+    </div>
+  `;
+  document.getElementById('lessonArea').scrollIntoView({behavior:'smooth'});
 }
 
-function markLessonDone(cid,mid,lid){
-  const prog=getProgress(CU.id,cid);
-  const key=`${mid}-${lid}`;
-  if(!prog.completedLessons.includes(key)) prog.completedLessons.push(key);
-  saveProgress();
-  toast('✅ Aula concluída!');
-  courseViewer(); // refresh to unlock next items
+function completeLesson(cid,mid,lid){
+  const prog = getProgress(CU.id, cid);
+  const key = `${mid}-${lid}`;
+  if(!prog.completedLessons.includes(key)){
+    prog.completedLessons.push(key);
+    saveProgress();
+    toast('✅ Aula concluída!');
+  }
+  courseViewer();
 }
-
-/* ════════════════════════════════════════════════════════════════
-   QUIZ SYSTEM
-════════════════════════════════════════════════════════════════ */
-let _activeQuiz=null;
 
 function showQuiz(cid,mid){
   const c=COURSES.find(x=>x.id===cid);
   const m=c?.modules?.find(x=>x.id===mid);
-  const quiz=m?.quiz; if(!quiz) return;
+  if(!m?.quiz) return;
   document.querySelectorAll('.lr').forEach(e=>e.classList.remove('active'));
   document.getElementById(`vq-${mid}`)?.classList.add('active');
 
-  const prog=getProgress(CU.id,cid);
-  const atts=prog.quizAttempts[mid]||[];
-  const maxAtt=quiz.maxAttempts||3;
-  const attLeft=maxAtt-atts.length;
-  const passed=atts.some(a=>a.pass);
-
-  if(passed){
-    showQuizResult(cid,mid,atts[atts.length-1],atts); return;
-  }
-  if(attLeft<=0){
-    document.getElementById('lessonArea').innerHTML=`
-    <div class="qcard">
-      <div class="qhead"><h2>Tentativas Esgotadas</h2><p>Você utilizou todas as ${maxAtt} tentativas disponíveis.</p></div>
-      <div style="text-align:center;padding:24px">
-        <div style="font-size:48px;margin-bottom:12px">🚫</div>
-        <p style="font-size:15px;color:var(--t2);margin-bottom:18px">Entre em contato com o gestor para solicitar uma nova tentativa.</p>
-        ${renderAttemptHistory(atts,quiz.minScore)}
+  let qHtml = m.quiz.questions.map((q,idx)=>`
+    <div class="fgrp" style="margin-bottom:30px;padding:20px;background:var(--surf2);border-radius:10px">
+      <div style="font-weight:700;margin-bottom:15px;font-size:15px;color:var(--t1)">${idx+1}. ${q.txt}</div>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        ${q.opts.map((o,oidx)=>`
+          <label style="display:flex;align-items:center;gap:10px;cursor:pointer;padding:8px 12px;background:var(--surf);border:1.5px solid var(--bdr);border-radius:6px;font-size:14px">
+            <input type="radio" name="q${idx}" value="${oidx}"> ${o}
+          </label>
+        `).join('')}
       </div>
-    </div>`; return;
-  }
-
-  _activeQuiz={cid,mid,quiz,answers:{},submitted:false};
+    </div>
+  `).join('');
 
   document.getElementById('lessonArea').innerHTML=`
-  <div class="qcard">
-    <div class="qhead">
-      <h2>${quiz.title}</h2>
-      <p>${quiz.questions.length} questão(ões) · Nota mínima: ${quiz.minScore.toFixed(1)} · Tentativa ${atts.length+1}/${maxAtt}</p>
+    <div class="seye">${m.title}</div>
+    <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;margin-bottom:10px">${m.quiz.title}</h2>
+    <p style="margin-bottom:30px;color:var(--t3);font-size:14px">Responda todas as questões abaixo. Você precisa de no mínimo ${c.minScore} para ser aprovado.</p>
+    <div id="quizForm">${qHtml}</div>
+    <div style="text-align:right">
+      <button class="btn b-or" onclick="submitQuiz(${cid},${mid})">Enviar Avaliação →</button>
     </div>
-    ${quiz.questions.map((q,qi)=>`
-    <div class="qb">
-      <div class="qn">Questão ${qi+1} de ${quiz.questions.length}</div>
-      <div class="qt">${q.txt}</div>
-      ${q.opts.map((o,oi)=>`
-      <div class="opt" id="qopt-${q.id}-${oi}" onclick="selOpt(${q.id},${oi})">
-        <div class="ol">${'ABCD'[oi]}</div>${o}
-      </div>`).join('')}
-    </div>`).join('')}
-    <div class="qfoot">
-      <span class="qprog" id="qprog">0/${quiz.questions.length} respondidas</span>
-      <button class="btn b-or" onclick="submitQuiz()">Finalizar Avaliação ✓</button>
-    </div>
-  </div>`;
+  `;
 }
 
-function selOpt(qId,oi){
-  if(_activeQuiz?.submitted) return;
-  _activeQuiz.answers[qId]=oi;
-  _activeQuiz.quiz.questions.find(q=>q.id===qId)?.opts.forEach((_,i)=>document.getElementById(`qopt-${qId}-${i}`)?.classList.remove('sel'));
-  document.getElementById(`qopt-${qId}-${oi}`)?.classList.add('sel');
-  const answered=Object.keys(_activeQuiz.answers).length;
-  const total=_activeQuiz.quiz.questions.length;
-  const el=document.getElementById('qprog');
-  if(el) el.textContent=`${answered}/${total} respondidas`;
-}
-
-function submitQuiz(){
-  const aq=_activeQuiz; if(!aq||aq.submitted) return;
-  const {cid,mid,quiz}=aq;
-  if(Object.keys(aq.answers).length<quiz.questions.length){ toast('⚠️ Responda todas as questões antes de finalizar.'); return; }
-  aq.submitted=true;
-  let cor=0;
-  quiz.questions.forEach(q=>{
-    const ans=aq.answers[q.id];
-    q.opts.forEach((_,oi)=>{
-      const el=document.getElementById(`qopt-${q.id}-${oi}`); if(!el) return;
-      el.classList.remove('sel');
-      if(oi===q.ok) el.classList.add('ok');
-      else if(oi===ans&&ans!==q.ok) el.classList.add('err');
-    });
-    if(ans===q.ok) cor++;
-  });
-  const score=+(cor/quiz.questions.length*10).toFixed(1);
-  const pass=score>=quiz.minScore;
-  const prog=getProgress(CU.id,cid);
-  if(!prog.quizAttempts[mid]) prog.quizAttempts[mid]=[];
-  const att={ score, pass, correct:cor, total:quiz.questions.length, date:new Date().toISOString() };
-  prog.quizAttempts[mid].push(att);
-  saveProgress();
-  showQuizResult(cid,mid,att,prog.quizAttempts[mid]);
-}
-
-function showQuizResult(cid,mid,lastAtt,allAtts){
+function submitQuiz(cid,mid){
   const c=COURSES.find(x=>x.id===cid);
   const m=c?.modules?.find(x=>x.id===mid);
-  const quiz=m?.quiz;
-  const {score,pass,correct,total}=lastAtt;
-  const maxAtt=quiz?.maxAttempts||3;
-  const attLeft=maxAtt-allAtts.length;
-  const courseDone=isCourseComplete(CU.id,cid);
-  const foot=document.getElementById('lessonArea');
-  if(foot) foot.innerHTML=`
-  <div class="qcard">
-    <div class="qhead"><h2>${quiz?.title||'Resultado'}</h2></div>
-    <div class="resbox">
-      <div class="resc ${pass?'pass':'fail'}">${score.toFixed(1)}</div>
-      <div class="ressub">${correct}/${total} corretas · mínimo ${quiz?.minScore?.toFixed(1)||'7.0'}</div>
-      <div class="resmsg">${pass
-        ?`🎉 <strong>Aprovado!</strong> ${courseDone?'Você concluiu todos os módulos! Já pode emitir seu certificado.':'Próximo módulo desbloqueado.'}`
-        :`😔 <strong>Não aprovado.</strong> ${attLeft>0?`Você ainda tem <strong>${attLeft}</strong> tentativa(s). Revise o conteúdo e tente novamente.`:'Tentativas esgotadas. Contate o gestor.'}`
-      }</div>
-      <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap">
-        ${pass&&courseDone?`<button class="btn b-or" onclick="certificate()">🎓 Emitir Certificado</button>`:''}
-        ${!pass&&attLeft>0?`<button class="btn b-gh" onclick="showQuiz(${cid},${mid})">Tentar Novamente</button>`:''}
-        <button class="btn b-gh" onclick="courseViewer()">← Voltar ao Curso</button>
-      </div>
+  const qs = m.quiz.questions;
+  let correct = 0;
+  for(let i=0; i<qs.length; i++){
+    const sel = document.querySelector(`input[name="q${i}"]:checked`);
+    if(sel && parseInt(sel.value) === qs[i].ok) correct++;
+  }
+  const score = (correct / qs.length) * 10;
+  const pass = score >= c.minScore;
+  const prog = getProgress(CU.id, cid);
+  if(!prog.quizAttempts[mid]) prog.quizAttempts[mid]=[];
+  prog.quizAttempts[mid].push({score, date:new Date().toISOString(), pass});
+  saveProgress();
+
+  const msg = pass ? `🎉 PARABÉNS! Você foi aprovado com nota ${score.toFixed(1)}.` : `❌ Que pena. Sua nota foi ${score.toFixed(1)}, abaixo do mínimo (${c.minScore}). Tente novamente!`;
+  document.getElementById('lessonArea').innerHTML=`
+    <div style="text-align:center;padding:40px 0">
+      <div style="font-size:60px;margin-bottom:20px">${pass?'🏆':'📚'}</div>
+      <h2 style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;text-transform:uppercase;margin-bottom:10px">${pass?'Aprovado!':'Tente Novamente'}</h2>
+      <p style="font-size:18px;color:var(--t2);margin-bottom:30px">${msg}</p>
+      <button class="btn b-or" onclick="courseViewer()">Continuar</button>
     </div>
-    ${renderAttemptHistory(allAtts,quiz?.minScore||7)}
-  </div>`;
+  `;
 }
 
-function renderAttemptHistory(atts,minScore){
-  if(!atts||!atts.length) return '';
-  return `<div style="margin-top:20px;padding-top:16px;border-top:1px solid var(--bdr-lt)">
-    <div style="font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">Histórico de Tentativas</div>
-    ${atts.map((a,i)=>`
-    <div class="attempt-row">
-      <span style="font-size:11px;font-weight:700;color:var(--t3);width:22px">#${i+1}</span>
-      <span class="att-score ${a.pass?'pass':'fail'}">${a.score.toFixed(1)}</span>
-      <span style="flex:1;font-size:13px;color:var(--t2)">${a.correct}/${a.total} corretas</span>
-      <span class="bdg ${a.pass?'bdg-ok':'bdg-off'}">${a.pass?'Aprovado':'Reprovado'}</span>
-      <span style="font-size:11px;color:var(--t3)">${new Date(a.date).toLocaleDateString('pt-BR')}</span>
-    </div>`).join('')}
-  </div>`;
-}
-
-/* ════════════════════════════════════════════════════════════════
-   CERTIFICATE (only if course complete)
-════════════════════════════════════════════════════════════════ */
-function certificate(){
-  const cid=activeCourseId||CU.courseId;
-  const c=COURSES.find(x=>x.id===cid);
-  if(!c){ toast('⚠️ Selecione um curso primeiro.'); return; }
-  if(!isCourseComplete(CU.id,cid)){ toast('⚠️ Conclua todos os módulos para emitir o certificado.'); return; }
-  const avgScores=c.modules.map(m=>{
-    const atts=(getProgress(CU.id,cid).quizAttempts[m.id]||[]);
-    const best=atts.reduce((b,a)=>a.score>b.score?a:b,{score:0});
-    return best.score;
-  }).filter(s=>s>0);
-  const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
-  const certHtml=`
-  <div class="cert" id="certBlock">
-    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px">
-      <div class="lm" style="width:40px;height:40px;font-size:14px">CAW</div>
-      <div style="text-align:left"><div class="cert-co">CAW PROJETOS E CONSULTORIA INDUSTRIAL</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
-    </div>
-    <div class="cert-h1">Certifi<em>cado</em> de Conclusão</div>
-    <div class="cert-h2">Este documento certifica que</div>
-    <div class="cert-nm">${CU.name}</div>
-    <div class="cert-bd">concluiu com êxito o curso técnico industrial</div>
-    <div class="cert-cs">${c.title}</div>
-    <div style="font-size:13px;color:var(--t2);margin-bottom:28px">Carga Horária: ${c.hours}h · Nota Final: ${avg} · ${c.modules.length} módulo(s)</div>
-    <div class="cert-ft">
-      <div class="csig"><div class="csln"></div><div class="cssn">Hans</div><div class="cssr">Diretor · CAW Industrial</div></div>
-      <div style="text-align:center">
-        <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:2px">Data de Conclusão</div>
-        <div style="font-weight:800;font-size:14px;color:var(--t1);margin-top:2px">${new Date().toLocaleDateString('pt-BR',{day:'2-digit',month:'long',year:'numeric'})}</div>
-      </div>
-      <div class="csig"><div class="csln"></div><div class="cssn">Geraldo Andrade</div><div class="cssr">Gestor de T&D</div></div>
-    </div>
-  </div>`;
-  document.getElementById('main').innerHTML=`
-  <div class="pgh">
-    <div><h1>Certificado</h1><div class="pgcr">Certificado de Conclusão — ${c.title}</div></div>
-    <button class="btn b-or" onclick="printCert()">🖨 Imprimir / Baixar</button>
-  </div>
-  <div class="pgb" id="certContainer">${certHtml}</div>`;
-  // Store for print
-  document.getElementById('printArea').innerHTML=certHtml;
-}
-
-function printCert(){
-  document.getElementById('printArea').style.display='flex';
-  window.print();
-  setTimeout(()=>document.getElementById('printArea').style.display='none',1000);
-}
-
-/* ════════════════════════════════════════════════════════════════
-   RANKING
-════════════════════════════════════════════════════════════════ */
 function ranking(){
-  const data=USERS.filter(u=>u.type==='colaborador'&&u.active).map(u=>{
-    const courses=COURSES.filter(c=>c.id===u.courseId||!u.courseId);
-    const scores=[];
-    courses.forEach(c=>c.modules.forEach(m=>{
-      const atts=getProgress(u.id,c.id).quizAttempts[m.id]||[];
-      if(atts.length) scores.push(Math.max(...atts.map(a=>a.score)));
-    }));
-    const avg=scores.length?+(scores.reduce((a,b)=>a+b,0)/scores.length).toFixed(1):0;
-    const done=courses.filter(c=>isCourseComplete(u.id,c.id)).length;
-    return {u,avg,done};
-  }).sort((a,b)=>b.avg-a.avg||b.done-a.done);
+  const sorted = [...USERS]
+    .filter(u=>u.type==='colaborador')
+    .map(u=>{
+      const c = COURSES.find(x=>x.id===u.courseId);
+      const pct = c ? courseProgress(u.id, c.id) : 0;
+      return {...u, pct};
+    })
+    .sort((a,b)=>b.pct - a.pct);
 
-  page('Ranking','Colaboradores mais engajados',`
-  <div style="max-width:640px">
-    ${data.length?data.map(({u,avg,done},i)=>`
-    <div class="rkr">
-      <div class="rkp ${i<3?'top':''}">${i===0?'🥇':i===1?'🥈':i===2?'🥉':(i+1)}</div>
-      <div class="rkav" style="background:${u.color||'#999'}">${u.ini||u.name[0]}</div>
-      <div style="flex:1"><div class="rknm">${u.name}${u.id===CU.id?' <span style="background:var(--or);color:#fff;font-size:9px;padding:1px 7px;border-radius:10px;margin-left:5px">VOCÊ</span>':''}</div>
-      <div class="rkdt">${u.sector||'—'} · ${done} concluído(s)</div></div>
-      <div class="rksc">${avg>0?avg.toFixed(1):'—'}</div>
-    </div>`).join(''):`<div style="text-align:center;padding:32px;color:var(--t3)">Nenhum dado disponível ainda.</div>`}
-  </div>`);
+  let rows = sorted.map((u,idx)=>`
+    <tr>
+      <td style="width:50px;font-weight:800;color:var(--or)">#${idx+1}</td>
+      <td>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div class="uav" style="background:${u.color};width:28px;height:28px;font-size:10px">${u.ini}</div>
+          <div><strong>${u.name}</strong><div style="font-size:11px;color:var(--t3)">${u.sector}</div></div>
+        </div>
+      </td>
+      <td>${u.pct}%</td>
+      <td><div class="pb" style="width:100px;margin-bottom:0"><div class="pbf" style="width:${u.pct}%"></div></div></td>
+    </tr>
+  `).join('');
+
+  page('Ranking','Classificação de aprendizado',`
+    <div class="tw">
+      <table>
+        <thead><tr><th>Pos</th><th>Colaborador</th><th>Progresso</th><th>Geral</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>
+  `);
 }
 
-/* ════════════════════════════════════════════════════════════════
-   GESTOR PAGES (read-only)
-════════════════════════════════════════════════════════════════ */
-function roAlert(){ return `<div style="background:#EDE9FE;border:1px solid #C4B5FD;border-radius:8px;padding:11px 14px;margin-bottom:18px;font-size:13px;color:#5B21B6;display:flex;align-items:center;gap:8px"><strong>🔒 Modo Leitura.</strong> Acesse como Master para realizar edições.</div>`; }
+function certificate(){}
 
+/* ════════════════════════════════════════════════════════════════
+   GESTOR PAGES
+════════════════════════════════════════════════════════════════ */
 function gDash(){
-  const colabors=USERS.filter(u=>u.type==='colaborador'&&u.active);
-  page('Dashboard Gestor','Visualização — sem permissão de edição',`
-  ${roAlert()}
-  <div class="krow">
-    <div class="kpi"><div class="kico">👥</div><div class="kval">${colabors.length}</div><div class="klbl">Colaboradores</div></div>
-    <div class="kpi"><div class="kico">📚</div><div class="kval">${COURSES.length}</div><div class="klbl">Cursos</div></div>
-    <div class="kpi"><div class="kico">📦</div><div class="kval">${COURSES.reduce((s,c)=>s+(c.modules?.length||0),0)}</div><div class="klbl">Módulos</div></div>
-    <div class="kpi"><div class="kico">🎓</div><div class="kval">${colabors.filter(u=>u.courseId&&isCourseComplete(u.id,u.courseId)).length}</div><div class="klbl">Certificados</div></div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-    <div class="cht"><div class="chtt">Progresso dos Colaboradores</div>
-      ${colabors.map(u=>`<div style="margin-bottom:10px">
-        <div style="display:flex;justify-content:space-between;font-size:13px;font-weight:600;margin-bottom:4px;color:var(--t2)">
-          <span>${u.name}</span><span style="color:var(--or)">${u.courseId?courseProgress(u.id,u.courseId):0}%</span>
-        </div>
-        <div class="pb" style="height:6px"><div class="pbf" style="width:${u.courseId?courseProgress(u.id,u.courseId):0}%"></div></div>
-      </div>`).join('')}
+  const colabs = USERS.filter(u=>u.type==='colaborador');
+  const avgProg = colabs.length ? Math.round(colabs.reduce((s,u)=>s+courseProgress(u.id, u.courseId||0),0)/colabs.length) : 0;
+  page('Painel do Gestor','Visão geral da equipe','',`
+    <button class="btn b-or" style="font-size:11px;padding:7px 14px" onclick="go('gReports')">Gerar Relatório PDF</button>
+  `);
+  document.getElementById('main').innerHTML+=`
+    <div class="krow" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="kico">👥</div><div class="kval">${colabs.length}</div><div class="klbl">Colaboradores</div></div>
+      <div class="kpi"><div class="kico">📚</div><div class="kval">${COURSES.length}</div><div class="klbl">Cursos Ativos</div></div>
+      <div class="kpi"><div class="kico">📈</div><div class="kval">${avgProg}%</div><div class="klbl">Média de Progresso</div></div>
+      <div class="kpi"><div class="kico">✅</div><div class="kval">${colabs.filter(u=>isCourseComplete(u.id, u.courseId||0)).length}</div><div class="klbl">Concluídos</div></div>
     </div>
-    <div class="cht"><div class="chtt">Cursos</div>
-      ${COURSES.map(c=>`<div style="display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--bdr-lt)">
-        <span style="font-size:13px;color:var(--t2)">${c.ico||'📚'} ${c.title}</span>
-        <span class="bdg bdg-tag">${c.modules?.length||0} módulos</span>
-      </div>`).join('')}
+    <div class="sh"><h2>Status da Equipe</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Nome</th><th>Setor</th><th>Curso Alocado</th><th>Progresso</th><th>Status</th></tr></thead>
+        <tbody>
+          ${colabs.map(u=>{
+            const c = COURSES.find(x=>x.id===u.courseId);
+            const pct = c ? courseProgress(u.id, c.id) : 0;
+            const done = c ? isCourseComplete(u.id, c.id) : false;
+            return `<tr>
+              <td><strong>${u.name}</strong></td>
+              <td>${u.sector}</td>
+              <td>${c?.title||'—'}</td>
+              <td>${pct}%</td>
+              <td><span class="bdg ${done?'bdg-ok':'bdg-tag'}">${done?'Concluído':'Em curso'}</span></td>
+            </tr>`;
+          }).join('')}
+        </tbody>
+      </table>
     </div>
-  </div>`);
+  `;
 }
 
 function gUsers(){
-  const rows=USERS.filter(u=>u.type==='colaborador').map(u=>`<tr>
-    <td><strong style="color:var(--t1)">${u.name}</strong><br><small style="color:var(--t3)">@${u.login}</small></td>
-    <td>${u.role||'—'}</td><td>${u.sector||'—'}</td>
-    <td>${u.courseId?`<span class="course-tag">${COURSES.find(c=>c.id===u.courseId)?.title||'—'}</span>`:'—'}</td>
-    <td><span class="bdg ${u.active?'bdg-ok':'bdg-off'}">${u.active?'Ativo':'Inativo'}</span></td>
-    <td><strong style="color:var(--or)">${u.courseId?courseProgress(u.id,u.courseId):0}%</strong></td>
-  </tr>`).join('');
-  page('Colaboradores','Visualização — sem permissão de edição',roAlert()+`<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Nome</th><th>Cargo</th><th>Setor</th><th>Curso</th><th>Status</th><th>Progresso</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+  const colabs = USERS.filter(u=>u.type==='colaborador');
+  page('Colaboradores','Gerenciamento de acessos',`
+    <div class="tw">
+      <table>
+        <thead><tr><th>Nome</th><th>Setor</th><th>Função</th><th>Último Acesso</th><th>Ações</th></tr></thead>
+        <tbody>
+          ${colabs.map(u=>`<tr>
+            <td><strong>${u.name}</strong></td>
+            <td>${u.sector}</td>
+            <td>${u.role}</td>
+            <td>Hoje</td>
+            <td><button class="b-sm">Ver Detalhes</button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  `);
 }
 
 function gCourses(){
-  const rows=COURSES.map(c=>`<tr>
-    <td><div style="display:flex;align-items:center;gap:10px"><div style="font-size:26px">${c.ico||'📚'}</div><div><strong style="color:var(--t1)">${c.title}</strong><br><small style="color:var(--t3)">${c.instructor}</small></div></div></td>
-    <td><span class="bdg bdg-tag">${c.category||'Geral'}</span></td>
-    <td>${c.modules?.length||0} módulos</td><td>${c.hours}h</td><td><strong style="color:var(--or)">${c.minScore.toFixed(1)}</strong></td>
-  </tr>`).join('');
-  page('Cursos','Visualização — sem permissão de edição',roAlert()+`<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Curso</th><th>Categoria</th><th>Módulos</th><th>Carga H.</th><th>Nota Mín.</th></tr></thead><tbody>${rows}</tbody></table></div>`);
+  page('Catálogo de Cursos','Cursos disponíveis na plataforma',`
+    <div class="cgrid">${COURSES.map(c=>cc(c)).join('')}</div>
+  `);
 }
 
 function gReports(){
-  const colabors=USERS.filter(u=>u.type==='colaborador'&&u.active);
-  page('Relatórios','Análise de desempenho',roAlert()+`
-  <div class="krow">
-    <div class="kpi"><div class="kico">📈</div><div class="kval">${Math.round(colabors.reduce((s,u)=>s+(u.courseId?courseProgress(u.id,u.courseId):0),0)/(colabors.length||1))}%</div><div class="klbl">Progresso Médio</div></div>
-    <div class="kpi"><div class="kico">🎓</div><div class="kval">${colabors.filter(u=>u.courseId&&isCourseComplete(u.id,u.courseId)).length}</div><div class="klbl">Concluídos</div></div>
-    <div class="kpi"><div class="kico">📚</div><div class="kval">${COURSES.length}</div><div class="klbl">Cursos</div></div>
-    <div class="kpi"><div class="kico">📦</div><div class="kval">${COURSES.reduce((s,c)=>s+(c.modules?.length||0),0)}</div><div class="klbl">Módulos</div></div>
-  </div>
-  <div class="cht"><div class="chtt">Progresso Individual</div>
-    <div style="overflow-x:auto"><table class="tbl" style="box-shadow:none;border:none">
-      <thead><tr><th>Colaborador</th><th>Curso</th><th>Progresso</th><th>Aprovações</th><th>Status</th></tr></thead>
-      <tbody>${colabors.map(u=>{
-        const c=COURSES.find(x=>x.id===u.courseId);
-        const pct=c?courseProgress(u.id,c.id):0;
-        const passed=c?c.modules.filter(m=>isModulePassed(u.id,c.id,m.id)).length:0;
-        const done=c&&isCourseComplete(u.id,c.id);
-        return `<tr>
-          <td><strong style="color:var(--t1)">${u.name}</strong></td>
-          <td>${c?`<span class="course-tag">${c.title}</span>`:'—'}</td>
-          <td><div style="display:flex;align-items:center;gap:8px"><div class="pb" style="width:80px;margin:0"><div class="pbf" style="width:${pct}%"></div></div><span style="font-size:12px;font-weight:700;color:var(--or)">${pct}%</span></div></td>
-          <td>${c?`${passed}/${c.modules.length} módulos`:'—'}</td>
-          <td><span class="bdg ${done?'bdg-ok':pct>0?'bdg-tag':'bdg-off'}">${done?'Concluído':pct>0?'Em andamento':'Não iniciado'}</span></td>
-        </tr>`;}).join('')}
-      </tbody>
-    </table></div>
-  </div>`);
+  page('Relatórios Técnicos','Análise de desempenho por setor',`
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px">
+      <div class="kpi" style="align-items:flex-start;text-align:left">
+        <div class="kico">📄</div>
+        <h3>Relatório de Progresso Mensal</h3>
+        <p style="font-size:12px;color:var(--t3);margin:10px 0 20px">Resumo completo de todos os colaboradores, horas de treinamento e notas.</p>
+        <button class="btn b-gh" onclick="toast('Relatório sendo gerado...')">Download PDF</button>
+      </div>
+      <div class="kpi" style="align-items:flex-start;text-align:left">
+        <div class="kico">📊</div>
+        <h3>Matriz de Competências</h3>
+        <p style="font-size:12px;color:var(--t3);margin:10px 0 20px">Visualização por setor das habilidades técnicas adquiridas via treinamentos.</p>
+        <button class="btn b-gh" onclick="toast('Relatório sendo gerado...')">Download PDF</button>
+      </div>
+    </div>
+  `);
 }
 
 /* ════════════════════════════════════════════════════════════════
    MASTER PAGES
 ════════════════════════════════════════════════════════════════ */
 function mDash(){
-  const colabors=USERS.filter(u=>u.type==='colaborador'&&u.active);
-  page('Dashboard Master','Controle total da plataforma',`
-  <div class="krow">
-    <div class="kpi"><div class="kico">👥</div><div class="kval">${USERS.length}</div><div class="klbl">Total Usuários</div></div>
-    <div class="kpi"><div class="kico">📚</div><div class="kval">${COURSES.length}</div><div class="klbl">Cursos</div></div>
-    <div class="kpi"><div class="kico">📦</div><div class="kval">${COURSES.reduce((s,c)=>s+(c.modules?.length||0),0)}</div><div class="klbl">Módulos</div></div>
-    <div class="kpi"><div class="kico">🎓</div><div class="kval">${colabors.filter(u=>u.courseId&&isCourseComplete(u.id,u.courseId)).length}</div><div class="klbl">Certificados</div></div>
-  </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-    <div class="cht"><div class="chtt">Conclusões por Mês</div>
-      <div class="bch">${[['Out',55],['Nov',72],['Dez',68],['Jan',85],['Fev',91]].map(([m,v])=>`<div class="bg"><div class="bar" style="height:${v}%"></div><div class="brl">${m}</div></div>`).join('')}</div>
+  page('Painel Master','Controle total do sistema','',`
+    <button class="btn b-or" style="font-size:11px;padding:7px 14px" onclick="go('mNewUser')">+ Novo Usuário</button>
+  `);
+  document.getElementById('main').innerHTML+=`
+    <div class="krow" style="grid-template-columns:repeat(4,1fr)">
+      <div class="kpi"><div class="kico">👥</div><div class="kval">${USERS.length}</div><div class="klbl">Total Usuários</div></div>
+      <div class="kpi"><div class="kico">📚</div><div class="kval">${COURSES.length}</div><div class="klbl">Total Cursos</div></div>
+      <div class="kpi"><div class="kico">🏢</div><div class="kval">5</div><div class="klbl">Setores</div></div>
+      <div class="kpi"><div class="kico">🔐</div><div class="kval">Ativa</div><div class="klbl">Segurança</div></div>
     </div>
-    <div class="cht"><div class="chtt">Usuários por Tipo</div>
-      ${[['master','Master','#92400E'],['gestor','Gestor','#5B21B6'],['colaborador','Colaborador','#FF6A00']].map(([t,l,c])=>{
-        const cnt=USERS.filter(u=>u.type===t).length;
-        return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bdr-lt)">
-          <div style="width:10px;height:10px;border-radius:50%;background:${c}"></div>
-          <span style="flex:1;font-size:13px;font-weight:600;color:var(--t2)">${l}</span>
-          <strong style="color:var(--t1);font-size:16px">${cnt}</strong>
-        </div>`;}).join('')}
+    <div class="sh"><h2>Usuários Recentes</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Usuário</th><th>Tipo</th><th>Setor</th><th>Status</th><th>Ações</th></tr></thead>
+        <tbody>
+          ${USERS.map(u=>`<tr>
+            <td><strong>${u.name}</strong><div style="font-size:11px;color:var(--t3)">${u.login}</div></td>
+            <td><span class="abadge ab-${u.type}">${u.type}</span></td>
+            <td>${u.sector}</td>
+            <td><span class="bdg bdg-ok">Ativo</span></td>
+            <td><button class="b-sm">Editar</button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
     </div>
-  </div>`,
-  `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewCourse')">+ Novo Curso</button>
-   <button class="btn b-gh" style="font-size:12px;padding:9px 18px" onclick="go('mNewUser')">+ Novo Usuário</button>`);
+  `;
 }
 
-/* ── MASTER: USUÁRIOS ─────────────────────────────────────────── */
 function mUsers(){
-  const rows=USERS.map(u=>{
-    const tl={master:'Master',gestor:'Gestor',colaborador:'Colaborador'}[u.type];
-    const tc={master:'ab-master',gestor:'ab-gestor',colaborador:'ab-colab'}[u.type];
-    const c=COURSES.find(x=>x.id===u.courseId);
-    return `<tr>
-      <td><div style="display:flex;align-items:center;gap:9px">
-        <div style="width:33px;height:33px;border-radius:8px;background:${u.color||'#999'};display:flex;align-items:center;justify-content:center;font-weight:800;font-size:12px;color:#fff;flex-shrink:0">${u.ini||u.name[0]}</div>
-        <div><strong style="color:var(--t1)">${u.name}</strong><br><small style="color:var(--t3)">@${u.login}</small></div>
-      </div></td>
-      <td>${u.role||'—'}<br><small style="color:var(--t3)">${u.sector||'—'}</small></td>
-      <td>${c?`<span class="course-tag">${c.title}</span>`:'<span style="color:var(--t3);font-size:12px">—</span>'}</td>
-      <td><span class="abadge ${tc}">${tl}</span></td>
-      <td><span class="bdg ${u.active?'bdg-ok':'bdg-off'}">${u.active?'Ativo':'Inativo'}</span></td>
-      <td style="display:flex;gap:5px">
-        <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
-        ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
-      </td>
-    </tr>`;}).join('');
-  page('Usuários','Gerenciar todos os acessos',
-    `<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Usuário</th><th>Cargo / Setor</th><th>Curso</th><th>Tipo</th><th>Status</th><th>Ações</th></tr></thead><tbody>${rows}</tbody></table></div>`,
-    `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewUser')">+ Novo Usuário</button>`);
-}
-
-function toggleUser(id){
-  const u=USERS.find(x=>x.id===id); if(!u) return;
-  u.active=!u.active; saveUsers();
-  toast(u.active?'✅ Usuário ativado':'⛔ Usuário desativado'); mUsers();
-}
-
-function loadUserEdit(id){
-  const u=USERS.find(x=>x.id===id); if(!u) return;
-  document.getElementById('eu-name').value=u.name;
-  document.getElementById('eu-login').value=u.login;
-  document.getElementById('eu-role').value=u.role||'';
-  document.getElementById('eu-sector').value=u.sector||'';
-  if(document.getElementById('eu-course')) document.getElementById('eu-course').value=u.courseId||'';
-  onCourseChange(u.courseId);
-  selectAccess(u.type);
-  document.getElementById('mNewUser-editId').value=id;
+  page('Usuários','Gestão de todos os acessos',`
+    <div class="tw">
+      <table>
+        <thead><tr><th>Nome</th><th>Tipo</th><th>Login</th><th>Senha</th><th>Ações</th></tr></thead>
+        <tbody>
+          ${USERS.map(u=>`<tr>
+            <td><strong>${u.name}</strong></td>
+            <td><span class="abadge ab-${u.type}">${u.type}</span></td>
+            <td>${u.login}</td>
+            <td><code>${u.pass}</code></td>
+            <td><button class="b-sm">Editar</button> <button class="b-danger">Suspender</button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  `);
 }
 
 function mNewUser(){
-  const courseOpts=COURSES.map(c=>`<option value="${c.id}">${c.ico||'📚'} ${c.title}</option>`).join('');
-  document.getElementById('main').innerHTML=`
-  <div class="pgh">
-    <div><h1>Novo Usuário</h1><div class="pgcr">Master → Usuários → Cadastrar acesso</div></div>
-    <button class="btn b-gh" style="font-size:12px;padding:8px 16px" onclick="go('mUsers')">← Voltar</button>
-  </div>
-  <div class="pgb"><div style="max-width:860px">
-  <input type="hidden" id="mNewUser-editId" value="">
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label"><span class="form-section-num">1</span>Dados Pessoais e Login</div>
-    <div class="form-cols-2" style="margin-bottom:20px">
-      <div><label class="form-label">Nome Completo <span class="form-req">*</span></label>
-        <input id="eu-name" type="text" class="form-input" style="font-size:16px;padding:14px 16px" placeholder="Ex: João da Silva">
+  page('Novo Usuário','Cadastrar colaborador ou gestor',`
+    <div class="tw" style="max-width:600px;padding:30px">
+      <div class="fgrp"><label class="flbl">Nome Completo</label><input type="text" class="finp" placeholder="Ex: Ricardo Souza"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="fgrp"><label class="flbl">Login</label><input type="text" class="finp" placeholder="ricardo.souza"></div>
+        <div class="fgrp"><label class="flbl">Senha</label><input type="text" class="finp" value="Caw@2025"></div>
       </div>
-      <div><label class="form-label">Login <span class="form-req">*</span></label>
-        <input id="eu-login" type="text" class="form-input" style="font-size:16px;padding:14px 16px" placeholder="joao.silva"
-          oninput="this.value=this.value.toLowerCase().replace(/\\s+/g,'-')">
-        <span class="form-hint">Sem espaços. Minúsculas. Ex: joao.silva</span>
-      </div>
-    </div>
-    <div class="form-cols-2" style="margin-bottom:20px">
-      <div><label class="form-label">Senha <span class="form-req">*</span></label>
-        <div style="position:relative">
-          <input id="eu-pass" type="password" class="form-input" style="font-size:16px;padding:14px 48px 14px 16px" placeholder="Mínimo 6 caracteres">
-          <button type="button" onclick="togglePwd('eu-pass',this)" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:var(--t3)">👁</button>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="fgrp"><label class="flbl">Tipo</label>
+          <select class="finp"><option>colaborador</option><option>gestor</option><option>master</option></select>
+        </div>
+        <div class="fgrp"><label class="flbl">Setor</label>
+          <select class="finp"><option>Produção</option><option>Qualidade</option><option>SST</option><option>Logística</option></select>
         </div>
       </div>
-      <div><label class="form-label">Confirmar Senha <span class="form-req">*</span></label>
-        <div style="position:relative">
-          <input id="eu-pass2" type="password" class="form-input" style="font-size:16px;padding:14px 48px 14px 16px" placeholder="Repetir senha">
-          <button type="button" onclick="togglePwd('eu-pass2',this)" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;font-size:18px;color:var(--t3)">👁</button>
-        </div>
-      </div>
+      <button class="btn b-or" style="width:100%;justify-content:center;margin-top:10px" onclick="toast('✅ Usuário criado com sucesso!')">Criar Usuário</button>
     </div>
-    <div class="form-cols-2">
-      <div><label class="form-label">Cargo / Função</label>
-        <input id="eu-role" type="text" class="form-input" style="font-size:15px;padding:12px 15px" placeholder="Operador CNC, Técnico...">
-      </div>
-      <div><label class="form-label">Setor / Departamento</label>
-        <select id="eu-sector" class="form-input" style="font-size:15px;padding:12px 15px">
-          <option value="">Selecione...</option>
-          <option>Produção</option><option>Qualidade</option><option>Manutenção</option>
-          <option>Segurança / SST</option><option>Engenharia</option><option>Gestão</option>
-          <option>Diretoria</option><option>Administrativo</option>
-        </select>
-      </div>
-    </div>
-  </div>
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label"><span class="form-section-num">2</span>Vínculo de Curso e Nível de Acesso</div>
-    <div class="form-info-box" style="margin-bottom:20px">
-      <span style="font-size:20px">🔗</span>
-      <div><strong>Curso determina o nível de acesso</strong>
-      <p>Selecione o curso e o nível será sugerido automaticamente. Cursos de Gestão sugerem Gestor; demais sugerem Colaborador. Você pode alterar manualmente.</p></div>
-    </div>
-    <div style="margin-bottom:20px">
-      <label class="form-label">Curso de Matrícula <span class="form-req">*</span></label>
-      <select id="eu-course" class="form-input" style="font-size:15px;padding:12px 15px" onchange="onCourseChange(this.value)">
-        <option value="">— Selecione um curso —</option>
-        ${courseOpts}
-      </select>
-    </div>
-    <div id="course-preview" style="display:none;background:var(--surf2);border:1px solid var(--bdr);border-radius:10px;padding:16px;margin-bottom:20px">
-      <div style="display:flex;align-items:center;gap:12px">
-        <div id="cp-ico" style="font-size:32px">📚</div>
-        <div style="flex:1">
-          <div id="cp-title" style="font-size:16px;font-weight:700;color:var(--t1)">—</div>
-          <div id="cp-meta" style="font-size:13px;color:var(--t3);margin-top:3px">—</div>
-        </div>
-        <span id="cp-badge" class="abadge ab-colab">Colaborador</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;padding-top:14px;border-top:1px solid var(--bdr-lt)">
-        <div style="text-align:center"><div id="cp-hours" class="fpb-val">—</div><div class="fpb-lbl">Carga Horária</div></div>
-        <div style="text-align:center"><div id="cp-score" class="fpb-val">—</div><div class="fpb-lbl">Nota Mínima</div></div>
-        <div style="text-align:center"><div id="cp-mods" class="fpb-val">—</div><div class="fpb-lbl">Módulos</div></div>
-      </div>
-    </div>
-    <div>
-      <label class="form-label">Nível de Acesso <span class="form-req">*</span></label>
-      <div class="form-cols-3" style="margin-top:10px">
-        <div class="access-card" id="ac-colaborador" onclick="selectAccess('colaborador')">
-          <div style="font-size:26px;margin-bottom:7px">🟠</div>
-          <div style="font-weight:700;font-size:14px;color:var(--t1)">Colaborador</div>
-          <div style="font-size:12px;color:var(--t3);margin-top:4px;line-height:1.5">Acessa cursos, faz avaliações e recebe certificado</div>
-        </div>
-        <div class="access-card" id="ac-gestor" onclick="selectAccess('gestor')">
-          <div style="font-size:26px;margin-bottom:7px">🟣</div>
-          <div style="font-weight:700;font-size:14px;color:var(--t1)">Gestor</div>
-          <div style="font-size:12px;color:var(--t3);margin-top:4px;line-height:1.5">Visualiza relatórios e acompanha a equipe</div>
-        </div>
-        <div class="access-card" id="ac-master" onclick="selectAccess('master')">
-          <div style="font-size:26px;margin-bottom:7px">🟡</div>
-          <div style="font-weight:700;font-size:14px;color:var(--t1)">Master</div>
-          <div style="font-size:12px;color:var(--t3);margin-top:4px;line-height:1.5">Acesso total: cria cursos e gerencia usuários</div>
-        </div>
-      </div>
-      <input type="hidden" id="eu-type" value="colaborador">
-    </div>
-  </div>
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label"><span class="form-section-num">3</span>Informações Complementares</div>
-    <div class="form-cols-2">
-      <div><label class="form-label">E-mail</label><input id="eu-email" type="email" class="form-input" style="font-size:15px;padding:12px 15px" placeholder="nome@empresa.com.br"></div>
-      <div><label class="form-label">Observações</label><input id="eu-obs" type="text" class="form-input" style="font-size:15px;padding:12px 15px" placeholder="Notas internas (opcional)"></div>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <button class="btn b-gh" style="padding:13px 28px" onclick="go('mUsers')">Cancelar</button>
-    <button class="btn b-or" style="padding:14px 42px;font-size:14px" onclick="saveNewUser()">✅ Salvar Usuário</button>
-  </div>
-  </div></div>`;
-  selectAccess('colaborador');
+  `);
 }
 
-function togglePwd(id,btn){ const el=document.getElementById(id); if(!el) return; el.type=el.type==='password'?'text':'password'; btn.textContent=el.type==='password'?'👁':'🙈'; }
-
-function onCourseChange(cid){
-  const p=document.getElementById('course-preview'); if(!p) return;
-  if(!cid){ p.style.display='none'; return; }
-  const c=COURSES.find(x=>x.id==cid);
-  if(!c){ p.style.display='none'; return; }
-  p.style.display='block';
-  document.getElementById('cp-ico').textContent=c.ico||'📚';
-  document.getElementById('cp-title').textContent=c.title;
-  document.getElementById('cp-meta').textContent=`${c.instructor} · ${c.category||'Geral'}`;
-  document.getElementById('cp-hours').textContent=c.hours+'h';
-  document.getElementById('cp-score').textContent=c.minScore.toFixed(1);
-  document.getElementById('cp-mods').textContent=c.modules?.length||0;
-  const autoType=['Gestão','Administração','RH'].includes(c.category)?'gestor':'colaborador';
-  selectAccess(autoType);
-}
-
-function selectAccess(type){
-  document.querySelectorAll('.access-card').forEach(el=>el.classList.remove('access-card-active'));
-  document.getElementById('ac-'+type)?.classList.add('access-card-active');
-  const ti=document.getElementById('eu-type'); if(ti) ti.value=type;
-  const badge=document.getElementById('cp-badge');
-  if(badge){ badge.className='abadge '+{master:'ab-master',gestor:'ab-gestor',colaborador:'ab-colab'}[type]; badge.textContent={master:'Master',gestor:'Gestor',colaborador:'Colaborador'}[type]; }
-}
-
-function saveNewUser(){
-  const nm=document.getElementById('eu-name').value.trim();
-  const lg=document.getElementById('eu-login').value.trim().toLowerCase();
-  const ps=document.getElementById('eu-pass').value;
-  const ps2=document.getElementById('eu-pass2').value;
-  const rl=document.getElementById('eu-role').value.trim();
-  const sc=document.getElementById('eu-sector').value.trim();
-  const tp=document.getElementById('eu-type').value;
-  const cid=document.getElementById('eu-course').value;
-  const editId=document.getElementById('mNewUser-editId')?.value;
-
-  if(!nm||!lg){ toast('⚠️ Preencha Nome e Login.'); return; }
-  if(!editId&&!ps){ toast('⚠️ Preencha a senha.'); return; }
-  if(ps&&ps!==ps2){ toast('⚠️ As senhas não coincidem.'); return; }
-  if(ps&&ps.length<6){ toast('⚠️ Senha: mínimo 6 caracteres.'); return; }
-  if(!cid&&tp==='colaborador'){ toast('⚠️ Selecione o curso de matrícula.'); return; }
-  if(!editId&&USERS.find(u=>u.login===lg)){ toast('⚠️ Login já em uso.'); return; }
-
-  const c=COURSES.find(x=>x.id==cid);
-  const ini=nm.split(' ').filter(Boolean).map(w=>w[0]).join('').substring(0,2).toUpperCase();
-  const colors=['#FF6A00','#3b82f6','#8b5cf6','#f59e0b','#10b981','#ef4444'];
-
-  if(editId){
-    const u=USERS.find(x=>x.id==editId);
-    if(u){ Object.assign(u,{name:nm,login:lg,role:rl,sector:sc,type:tp,courseId:cid?Number(cid):null,ini,email:document.getElementById('eu-email')?.value||''});
-      if(ps) u.pass=ps; saveUsers(); toast(`✅ Usuário "${nm}" atualizado!`); go('mUsers'); return; }
-  }
-
-  USERS.push({ id:Date.now(),name:nm,login:lg,pass:ps,role:rl||'Colaborador',sector:sc||'Geral',type:tp,courseId:cid?Number(cid):null,ini,email:document.getElementById('eu-email')?.value||'',color:colors[USERS.length%colors.length],active:true });
-  saveUsers(); toast(`✅ Usuário "${nm}" cadastrado!`); go('mUsers');
-}
-
-/* ── MASTER: CURSOS ───────────────────────────────────────────── */
 function mCourses(){
-  const rows=COURSES.map(c=>{
-    const totalL=c.modules?.reduce((s,m)=>s+m.lessons.length,0)||0;
-    return `<tr>
-      <td><div style="display:flex;align-items:center;gap:10px"><div style="font-size:28px">${c.ico||'📚'}</div><div>
-        <strong style="color:var(--t1)">${c.title}</strong><br><small style="color:var(--t3)">👤 ${c.instructor}</small>
-      </div></div></td>
-      <td><span class="bdg bdg-tag">${c.category||'Geral'}</span></td>
-      <td><strong style="color:var(--or)">${c.modules?.length||0}</strong><br><small style="color:var(--t3)">${totalL} aulas</small></td>
-      <td>${c.hours}h</td><td><strong style="color:var(--or)">${c.minScore.toFixed(1)}</strong></td>
-      <td style="display:flex;gap:5px">
-        <button class="btn b-sm" onclick="editCourse(${c.id})">Editar</button>
-        <button class="btn b-danger" onclick="deleteCourse(${c.id})">Excluir</button>
-      </td>
-    </tr>`;}).join('');
-  page('Gestão de Cursos','Criar, editar e excluir cursos',
-    `<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Curso</th><th>Categoria</th><th>Módulos</th><th>Carga H.</th><th>Nota Mín.</th><th>Ações</th></tr></thead><tbody>${rows}</tbody></table></div>`,
-    `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewCourse')">+ Novo Curso</button>`);
-}
-
-function deleteCourse(id){
-  if(!confirm('Excluir este curso? Esta ação não pode ser desfeita.')) return;
-  COURSES=COURSES.filter(c=>c.id!==id); saveCourses(); toast('🗑 Curso excluído.'); mCourses();
-}
-
-function editCourse(id){
-  go('mNewCourse'); setTimeout(()=>{
-    const c=COURSES.find(x=>x.id===id); if(!c) return;
-    document.getElementById('nc-title').value=c.title;
-    document.getElementById('nc-inst').value=c.instructor;
-    document.getElementById('nc-cat').value=c.category||'';
-    document.getElementById('nc-hours').value=c.hours;
-    document.getElementById('nc-score').value=c.minScore;
-    document.getElementById('nc-maxatt').value=c.maxAttempts||3;
-    document.getElementById('nc-seq').value=c.sequential?'true':'false';
-    document.getElementById('nc-ico').value=c.ico||'';
-    document.getElementById('nc-editId').value=id;
-    c.modules?.forEach(m=>addModule(m));
-  },80);
+  page('Gestão de Cursos','Configuração de conteúdo e sequenciamento',`
+    <div class="tw">
+      <table>
+        <thead><tr><th>Curso</th><th>Instrutor</th><th>Módulos</th><th>Sequencial</th><th>Ações</th></tr></thead>
+        <tbody>
+          ${COURSES.map(c=>`<tr>
+            <td><strong>${c.title}</strong></td>
+            <td>${c.instructor}</td>
+            <td>${c.modules.length}</td>
+            <td>${c.sequential?'Sim':'Não'}</td>
+            <td><button class="b-sm">Editar Conteúdo</button></td>
+          </tr>`).join('')}
+        </tbody>
+      </table>
+    </div>
+  `);
 }
 
 function mNewCourse(){
-  document.getElementById('main').innerHTML=`
-  <div class="pgh">
-    <div><h1>Novo Curso</h1><div class="pgcr">Master → Cursos → Criar</div></div>
-    <button class="btn b-gh" style="font-size:12px;padding:8px 16px" onclick="go('mCourses')">← Voltar</button>
-  </div>
-  <div class="pgb"><div style="max-width:920px">
-  <input type="hidden" id="nc-editId" value="">
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label"><span class="form-section-num">1</span>Identificação do Curso</div>
-    <div style="margin-bottom:20px">
-      <label class="form-label">Título do Curso <span class="form-req">*</span></label>
-      <input id="nc-title" type="text" class="form-input" style="font-size:17px;padding:15px 16px"
-        placeholder="Ex: NR-12 — Segurança em Máquinas e Equipamentos Industriais">
-    </div>
-    <div class="form-cols-3" style="margin-bottom:20px">
-      <div><label class="form-label">Instrutor <span class="form-req">*</span></label>
-        <input id="nc-inst" type="text" class="form-input" style="font-size:15px;padding:13px 15px" placeholder="Nome do instrutor">
+  page('Novo Curso','Criação de trilha de aprendizado',`
+    <div class="tw" style="max-width:800px;padding:30px">
+      <div class="fgrp"><label class="flbl">Título do Curso</label><input type="text" class="finp" placeholder="Ex: Operação de Empilhadeira"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+        <div class="fgrp"><label class="flbl">Instrutor</label><input type="text" class="finp" placeholder="Nome do Responsável"></div>
+        <div class="fgrp"><label class="flbl">Carga Horária (h)</label><input type="number" class="finp" value="8"></div>
       </div>
-      <div><label class="form-label">Categoria</label>
-        <select id="nc-cat" class="form-input" style="font-size:15px;padding:13px 15px">
-          <option value="">Selecione...</option>
-          <option>Segurança</option><option>Técnico</option><option>Qualidade</option>
-          <option>Manutenção</option><option>Saúde</option><option>Gestão</option><option>Engenharia</option>
-        </select>
+      <div class="dbox" style="background:var(--surf2);border-style:dashed;text-align:center;padding:40px">
+        <div style="font-size:24px;margin-bottom:10px">📂</div>
+        <p>Arraste os arquivos (PDF/MP4) para criar os módulos automaticamente</p>
       </div>
-      <div><label class="form-label">Ícone</label>
-        <input id="nc-ico" type="text" class="form-input" style="font-size:26px;text-align:center;padding:10px 15px" placeholder="⚙️" maxlength="4">
-      </div>
+      <button class="btn b-or" style="width:100%;justify-content:center;margin-top:10px" onclick="toast('✅ Estrutura de curso criada!')">Salvar Rascunho</button>
     </div>
-    <div><label class="form-label">Descrição / Ementa</label>
-      <textarea id="nc-desc" class="form-input" rows="2" style="font-size:14px;resize:vertical"
-        placeholder="Objetivo do curso, público-alvo e principais tópicos..."></textarea>
-    </div>
-  </div>
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label"><span class="form-section-num">2</span>Configurações de Aprovação</div>
-    <div class="form-cols-3" style="margin-bottom:20px">
-      <div><label class="form-label">Carga Horária</label>
-        <div class="form-input-with-unit">
-          <input id="nc-hours" type="number" min="1" max="999" value="16" class="form-input" style="font-size:16px;padding:13px 15px"
-            oninput="document.getElementById('prev-hours').textContent=this.value+'h'">
-          <span class="form-unit">horas</span>
-        </div>
-      </div>
-      <div><label class="form-label">Nota Mínima para Aprovação</label>
-        <div class="form-input-with-unit">
-          <input id="nc-score" type="number" min="0" max="10" step="0.5" value="7.0" class="form-input" style="font-size:16px;padding:13px 15px"
-            oninput="document.getElementById('prev-score').textContent=parseFloat(this.value||0).toFixed(1)">
-          <span class="form-unit">/ 10</span>
-        </div>
-        <span class="form-hint">Aplicada a todos os módulos do curso</span>
-      </div>
-      <div><label class="form-label">Nº Máximo de Tentativas</label>
-        <div class="form-input-with-unit">
-          <input id="nc-maxatt" type="number" min="1" max="99" value="3" class="form-input" style="font-size:16px;padding:13px 15px"
-            oninput="document.getElementById('prev-att').textContent=this.value+'x'">
-          <span class="form-unit">vezes</span>
-        </div>
-      </div>
-    </div>
-    <div style="margin-bottom:20px">
-      <label class="form-label">Liberação dos Módulos</label>
-      <select id="nc-seq" class="form-input" style="font-size:15px;padding:13px 15px;max-width:380px"
-        onchange="document.getElementById('prev-seq').textContent=this.value==='true'?'Sequencial':'Livre'">
-        <option value="true">Sequencial — deve concluir um módulo para acessar o próximo</option>
-        <option value="false">Livre — pode acessar todos os módulos sem ordem</option>
-      </select>
-    </div>
-    <div class="form-preview-bar">
-      <div class="fpb-item"><span class="fpb-ico">⏱</span><span class="fpb-val" id="prev-hours">16h</span><span class="fpb-lbl">Carga horária</span></div>
-      <div class="fpb-item"><span class="fpb-ico">✅</span><span class="fpb-val" id="prev-score">7.0</span><span class="fpb-lbl">Nota mínima</span></div>
-      <div class="fpb-item"><span class="fpb-ico">🔁</span><span class="fpb-val" id="prev-att">3x</span><span class="fpb-lbl">Tentativas</span></div>
-      <div class="fpb-item"><span class="fpb-ico">🔒</span><span class="fpb-val" id="prev-seq">Sequencial</span><span class="fpb-lbl">Liberação</span></div>
-      <div class="fpb-item"><span class="fpb-ico">📦</span><span class="fpb-val" id="prev-mods">0</span><span class="fpb-lbl">Módulos</span></div>
-    </div>
-  </div>
-
-  <div class="fcard" style="margin-bottom:22px">
-    <div class="form-section-label">
-      <span class="form-section-num">3</span>
-      Módulos, Aulas e Provas
-      <button class="btn b-or" style="margin-left:auto;padding:8px 18px;font-size:12px" onclick="addModule()">+ Adicionar Módulo</button>
-    </div>
-    <div class="form-info-box" style="margin-bottom:18px">
-      <span style="font-size:20px">📦</span>
-      <div><strong>Como funciona a estrutura?</strong>
-      <p>Cada módulo agrupa aulas (PDF, vídeo ou link) e possui sua própria prova. O aluno só pode fazer a prova após concluir todas as aulas do módulo. Os módulos seguem a ordem sequencial definida acima.</p></div>
-    </div>
-    <div id="modules-container">
-      <div data-empty style="text-align:center;padding:32px;background:var(--surf2);border:2px dashed var(--bdr);border-radius:10px;color:var(--t3)">
-        <div style="font-size:36px;margin-bottom:10px">📦</div>
-        <div style="font-weight:700;font-size:15px;margin-bottom:4px">Nenhum módulo criado</div>
-        <div style="font-size:13px">Clique em "+ Adicionar Módulo" para começar</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="form-actions">
-    <button class="btn b-gh" style="padding:13px 28px" onclick="go('mCourses')">Cancelar</button>
-    <button class="btn b-or" style="padding:14px 42px;font-size:14px" onclick="saveCourse()">💾 Salvar e Publicar Curso</button>
-  </div>
-  </div></div>`;
-  window._mods=[]; window._modCtr=0; window._lessCtr=0; window._qCtr=0;
+  `);
 }
 
-let _UPLOADED={pdf:{},video:{}};
+function mReports(){ gReports(); }
 
-function addModule(prefill){
-  window._modCtr=(window._modCtr||0)+1;
-  const mid=window._modCtr;
-  const cont=document.getElementById('modules-container');
-  if(cont.querySelector('[data-empty]')) cont.innerHTML='';
-  const el=document.createElement('div');
-  el.id='mod-'+mid; el.className='module-block';
-  el.innerHTML=`
-  <div class="module-header">
-    <div class="mod-num">${mid}</div>
-    <input type="text" class="mod-title-inp" id="mod-t-${mid}"
-      placeholder="Título do módulo (ex: Fundamentos da NR-12)"
-      value="${prefill?.title||''}">
-    <div style="display:flex;gap:6px;align-items:center;flex-shrink:0">
-      <span style="font-size:11px;color:var(--t3)">Ordem:</span>
-      <input type="number" min="1" value="${prefill?.order||mid}" id="mod-o-${mid}"
-        style="width:56px;padding:6px 8px;border:1.5px solid var(--bdr);border-radius:6px;font-size:14px;font-weight:700;text-align:center;outline:none;font-family:'Barlow',sans-serif">
-      <button class="btn b-danger" style="font-size:11px;padding:6px 10px" onclick="removeModule(${mid})">🗑</button>
-    </div>
-  </div>
-  <div class="module-body">
-    <div class="mod-section">
-      <div class="mod-section-hd">
-        <span style="font-weight:700;font-size:13px;color:var(--t1)">📖 Aulas do Módulo</span>
-        <div style="display:flex;gap:6px;flex-wrap:wrap">
-          <button class="btn b-sm" onclick="addLesson(${mid},'pdf')">+ PDF</button>
-          <button class="btn b-sm" onclick="addLesson(${mid},'video')">+ Vídeo</button>
-          <button class="btn b-sm" onclick="addLesson(${mid},'link')">+ Link</button>
-        </div>
-      </div>
-      <div class="lessons-list" id="lessons-${mid}">
-        <div class="list-empty">Nenhuma aula adicionada. Use os botões acima.</div>
-      </div>
-    </div>
-    <div class="mod-section">
-      <div class="mod-section-hd">
-        <span style="font-weight:700;font-size:13px;color:var(--t1)">📝 Prova do Módulo</span>
-        <div style="display:flex;align-items:center;gap:8px">
-          <span style="font-size:11px;color:var(--t3);background:var(--surf2);padding:3px 8px;border-radius:6px;border:1px solid var(--bdr)">🔒 Liberada após concluir todas as aulas</span>
-          <button class="btn b-sm" onclick="addQuestion(${mid})">+ Questão</button>
-        </div>
-      </div>
-      <div style="margin-bottom:10px">
-        <input type="text" class="form-input" id="quiz-t-${mid}" style="font-size:14px;padding:10px 13px"
-          placeholder="Título da prova (ex: Avaliação — Módulo 1)"
-          value="${prefill?.quiz?.title||''}">
-      </div>
-      <div class="questions-list" id="questions-${mid}">
-        <div class="list-empty">Nenhuma questão adicionada. Clique em "+ Questão".</div>
-      </div>
-    </div>
-  </div>`;
-  cont.appendChild(el);
-  // Prefill lessons and questions
-  prefill?.lessons?.forEach(l=>addLesson(mid,l.type,l));
-  prefill?.quiz?.questions?.forEach(q=>addQuestion(mid,q));
-  updateModCount();
-}
-
-function removeModule(mid){
-  document.getElementById('mod-'+mid)?.remove();
-  updateModCount();
-  const cont=document.getElementById('modules-container');
-  if(!cont.children.length) cont.innerHTML='<div data-empty style="text-align:center;padding:32px;background:var(--surf2);border:2px dashed var(--bdr);border-radius:10px;color:var(--t3)"><div style="font-size:36px;margin-bottom:10px">📦</div><div style="font-weight:700;font-size:15px;margin-bottom:4px">Nenhum módulo criado</div><div style="font-size:13px">Clique em "+ Adicionar Módulo" para começar</div></div>';
-}
-
-function updateModCount(){ const el=document.getElementById('prev-mods'); if(el) el.textContent=document.querySelectorAll('.module-block').length; }
-
-function addLesson(mid,type,prefill){
-  window._lessCtr=(window._lessCtr||0)+1;
-  const lid=window._lessCtr;
-  const list=document.getElementById('lessons-'+mid); if(!list) return;
-  list.querySelectorAll('.list-empty').forEach(e=>e.remove());
-  const icons={pdf:'📄',video:'🎬',link:'🔗'};
-  const labels={pdf:'PDF',video:'Vídeo',link:'Link Externo'};
-  const el=document.createElement('div');
-  el.id='less-'+lid; el.className='lesson-item';
-  el.innerHTML=`
-  <div class="lesson-item-left">
-    <div class="lesson-type-ico">${icons[type]||'📎'}</div>
-    <div style="flex:1;min-width:0">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;flex-wrap:wrap">
-        <span class="lesson-type-tag">${labels[type]||type}</span>
-        <input type="text" class="form-input" id="lt-${lid}" style="flex:1;min-width:120px;font-size:14px;padding:8px 11px"
-          placeholder="Título da aula" value="${prefill?.title||''}">
-      </div>
-      ${type!=='link'?`
-      <div class="lesson-upload-row">
-        <label class="lesson-upload-btn">
-          <input type="file" accept="${type==='pdf'?'.pdf':'video/*'}" style="display:none" onchange="lessonFileChosen(${lid},this)">
-          📎 Escolher ${type==='pdf'?'PDF':'vídeo'}
-        </label>
-        <span id="lf-${lid}" style="font-size:12px;color:var(--t3)">${prefill?.url?'✅ Arquivo carregado':'Nenhum arquivo'}</span>
-      </div>`:`
-      <input type="url" class="form-input" id="lurl-${lid}" style="font-size:14px;padding:8px 11px;margin-top:6px"
-        placeholder="https://youtube.com/watch?v=..." value="${prefill?.url||''}">`}
-      <textarea class="form-input" id="ldesc-${lid}" rows="2" style="margin-top:7px;font-size:13px;resize:vertical"
-        placeholder="Descrição da aula (opcional)">${prefill?.text||''}</textarea>
-    </div>
-  </div>
-  <button class="btn b-danger" style="align-self:flex-start;font-size:11px;padding:5px 8px;flex-shrink:0"
-    onclick="document.getElementById('less-${lid}').remove()">✕</button>`;
-  list.appendChild(el);
-}
-
-function lessonFileChosen(lid,input){
-  const file=input.files[0]; if(!file) return;
-  const url=URL.createObjectURL(file);
-  input._objectUrl=url;
-  const el=document.getElementById('lf-'+lid);
-  if(el) el.textContent='✅ '+file.name+' ('+(file.size/1024/1024).toFixed(1)+'MB)';
-  toast('✅ '+file.name+' carregado!');
-}
-
-function addQuestion(mid,prefill){
-  window._qCtr=(window._qCtr||0)+1;
-  const qid=window._qCtr;
-  const list=document.getElementById('questions-'+mid); if(!list) return;
-  list.querySelectorAll('.list-empty').forEach(e=>e.remove());
-  const el=document.createElement('div');
-  el.id='quest-'+qid; el.className='question-item';
-  el.innerHTML=`
-  <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:10px">
-    <span class="q-num">${window._qCtr}</span>
-    <input type="text" class="form-input" id="qtxt-${qid}" style="flex:1;font-size:14px;padding:9px 12px"
-      placeholder="Enunciado da questão..." value="${prefill?.txt||''}">
-    <button class="btn b-danger" style="font-size:11px;padding:5px 8px;flex-shrink:0"
-      onclick="document.getElementById('quest-${qid}').remove()">✕</button>
-  </div>
-  <div style="background:var(--surf2);border-radius:8px;padding:12px;margin-left:36px">
-    <div style="font-size:11px;font-weight:700;color:var(--t3);text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">
-      Alternativas — marque (●) a correta
-    </div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
-      ${['A','B','C','D'].map((l,i)=>`
-      <div style="display:flex;align-items:center;gap:8px;background:var(--surf);border:1.5px solid var(--bdr);border-radius:7px;padding:8px 10px;transition:border-color .15s" id="qopt-wrap-${qid}-${i}">
-        <input type="radio" name="qcor-${qid}" value="${i}" id="qr-${qid}-${i}"
-          ${prefill&&prefill.ok===i?'checked':''}
-          style="width:18px;height:18px;accent-color:var(--or);flex-shrink:0;cursor:pointer"
-          onchange="document.querySelectorAll('[id^=qopt-wrap-${qid}-]').forEach(e=>{e.style.borderColor='var(--bdr)';e.style.background='var(--surf)'}); this.closest('[id^=qopt-wrap]').style.borderColor='var(--ok)'; this.closest('[id^=qopt-wrap]').style.background='rgba(22,163,74,.06)'">
-        <label for="qr-${qid}-${i}" style="font-size:12px;font-weight:700;color:var(--t3);flex-shrink:0;cursor:pointer">${l})</label>
-        <input type="text" class="form-input" id="qo-${qid}-${i}" style="flex:1;font-size:13px;padding:4px 8px;background:transparent;border:none;box-shadow:none"
-          placeholder="Alternativa ${l}" value="${prefill?.opts?.[i]||''}">
-      </div>`).join('')}
-    </div>
-  </div>`;
-  list.appendChild(el);
-  // Restore correct option highlight
-  if(prefill?.ok!==undefined){
-    const wrap=document.getElementById(`qopt-wrap-${qid}-${prefill.ok}`);
-    if(wrap){ wrap.style.borderColor='var(--ok)'; wrap.style.background='rgba(22,163,74,.06)'; }
-  }
-}
-
-function saveCourse(){
-  const title=document.getElementById('nc-title')?.value?.trim();
-  const inst=document.getElementById('nc-inst')?.value?.trim();
-  if(!title||!inst){ toast('⚠️ Preencha Título e Instrutor.'); return; }
-  const mEls=document.querySelectorAll('.module-block');
-  if(!mEls.length){ toast('⚠️ Adicione pelo menos um módulo.'); return; }
-
-  const score=parseFloat(document.getElementById('nc-score')?.value)||7.0;
-  const maxAtt=parseInt(document.getElementById('nc-maxatt')?.value)||3;
-
-  const modules=[];
-  mEls.forEach((mel,mi)=>{
-    const modId=parseInt(mel.id.replace('mod-',''));
-    const modTitle=document.getElementById('mod-t-'+modId)?.value?.trim()||('Módulo '+(mi+1));
-    const order=parseInt(document.getElementById('mod-o-'+modId)?.value)||mi+1;
-    const quizTitle=document.getElementById('quiz-t-'+modId)?.value?.trim()||('Avaliação — '+modTitle);
-
-    const lessons=[];
-    mel.querySelectorAll('.lesson-item').forEach((lel,li)=>{
-      const lid=lel.id.replace('less-','');
-      const ltitle=document.getElementById('lt-'+lid)?.value?.trim()||('Aula '+(li+1));
-      const ldesc=document.getElementById('ldesc-'+lid)?.value?.trim()||'';
-      const lurl=document.getElementById('lurl-'+lid)?.value?.trim()||'';
-      const fileInput=lel.querySelector('input[type=file]');
-      const type=fileInput?(fileInput.accept.includes('video')?'video':'pdf'):'link';
-      const url=fileInput?._objectUrl||lurl;
-      lessons.push({id:li+1,title:ltitle,type,url,text:ldesc});
-    });
-
-    const questions=[];
-    mel.querySelectorAll('.question-item').forEach((qel,qi)=>{
-      const qid=qel.id.replace('quest-','');
-      const qtxt=document.getElementById('qtxt-'+qid)?.value?.trim()||'';
-      const opts=['A','B','C','D'].map((_,i)=>document.getElementById('qo-'+qid+'-'+i)?.value?.trim()||'');
-      const checked=qel.querySelector('input[type=radio]:checked');
-      const ok=checked?parseInt(checked.value):0;
-      if(qtxt) questions.push({id:qi+1,txt:qtxt,opts,ok});
-    });
-
-    modules.push({id:modId,order,title:modTitle,lessons,quiz:{title:quizTitle,minScore:score,maxAttempts:maxAtt,questions}});
-  });
-
-  modules.sort((a,b)=>a.order-b.order);
-
-  const editId=document.getElementById('nc-editId')?.value;
-  const courseData={
-    title,instructor:inst,
-    category:document.getElementById('nc-cat')?.value?.trim()||'Geral',
-    ico:document.getElementById('nc-ico')?.value?.trim()||'📚',
-    hours:parseInt(document.getElementById('nc-hours')?.value)||16,
-    minScore:score,maxAttempts:maxAtt,
-    sequential:document.getElementById('nc-seq')?.value==='true',
-    desc:document.getElementById('nc-desc')?.value?.trim()||'',
-    modules,
-  };
-
-  if(editId){
-    const idx=COURSES.findIndex(c=>c.id==editId);
-    if(idx>-1){ COURSES[idx]={...COURSES[idx],...courseData}; saveCourses(); toast(`✅ Curso "${title}" atualizado!`); go('mCourses'); return; }
-  }
-  COURSES.push({id:Date.now(),...courseData}); saveCourses();
-  toast(`✅ Curso "${title}" criado com ${modules.length} módulo(s)!`); go('mCourses');
-}
-
-/* ── MASTER: RELATÓRIOS ───────────────────────────────────────── */
-function mReports(){
-  const colabors=USERS.filter(u=>u.type==='colaborador'&&u.active);
-  page('Relatórios','Análise completa de desempenho',`
-  <div style="display:flex;gap:8px;margin-bottom:18px">
-    <button class="btn b-or" onclick="toast('📊 Exportando PDF...')">📊 Exportar PDF</button>
-    <button class="btn b-gh" onclick="toast('📋 Exportando Excel...')">📋 Exportar Excel</button>
-  </div>
-  <div class="krow">
-    <div class="kpi"><div class="kico">📈</div><div class="kval">${Math.round(colabors.reduce((s,u)=>s+(u.courseId?courseProgress(u.id,u.courseId):0),0)/(colabors.length||1))}%</div><div class="klbl">Progresso Médio</div></div>
-    <div class="kpi"><div class="kico">🎓</div><div class="kval">${colabors.filter(u=>u.courseId&&isCourseComplete(u.id,u.courseId)).length}</div><div class="klbl">Certificados</div></div>
-    <div class="kpi"><div class="kico">📦</div><div class="kval">${COURSES.reduce((s,c)=>s+(c.modules?.length||0),0)}</div><div class="klbl">Módulos</div></div>
-    <div class="kpi"><div class="kico">🔁</div><div class="kval">3x</div><div class="klbl">Tentativas Máx.</div></div>
-  </div>
-  <div class="cht"><div class="chtt">Desempenho Detalhado por Colaborador</div>
-  <div style="overflow-x:auto"><table class="tbl" style="box-shadow:none;border:none">
-    <thead><tr><th>Colaborador</th><th>Curso</th><th>Módulos Concluídos</th><th>Progresso</th><th>Melhor Nota</th><th>Status</th></tr></thead>
-    <tbody>${colabors.map(u=>{
-      const c=COURSES.find(x=>x.id===u.courseId);
-      const pct=c?courseProgress(u.id,c.id):0;
-      const done=c&&isCourseComplete(u.id,c.id);
-      const passedMods=c?c.modules.filter(m=>isModulePassed(u.id,c.id,m.id)).length:0;
-      const allScores=c?c.modules.flatMap(m=>(getProgress(u.id,c.id).quizAttempts[m.id]||[]).map(a=>a.score)):[];
-      const best=allScores.length?Math.max(...allScores).toFixed(1):'—';
-      return `<tr>
-        <td><div style="display:flex;align-items:center;gap:8px">
-          <div style="width:28px;height:28px;border-radius:6px;background:${u.color||'#999'};display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff">${u.ini||u.name[0]}</div>
-          <strong style="color:var(--t1)">${u.name}</strong>
-        </div></td>
-        <td>${c?`<span class="course-tag">${c.title}</span>`:'—'}</td>
-        <td>${c?`${passedMods}/${c.modules.length}`:'—'}</td>
-        <td><div style="display:flex;align-items:center;gap:8px"><div class="pb" style="width:80px;margin:0"><div class="pbf" style="width:${pct}%"></div></div><span style="font-size:12px;font-weight:700;color:var(--or)">${pct}%</span></div></td>
-        <td><strong style="color:${parseFloat(best)>=(c?.minScore||7)?'var(--ok)':'var(--err)'}">${best}</strong></td>
-        <td><span class="bdg ${done?'bdg-ok':pct>0?'bdg-tag':'bdg-off'}">${done?'Concluído':pct>0?'Em andamento':'Não iniciado'}</span></td>
-      </tr>`;}).join('')}
-    </tbody>
-  </table></div></div>`);
-}
-
-/* ── MASTER: SEGURANÇA ────────────────────────────────────────── */
 function mSecurity(){
-  page('Segurança','Configurações e proteção da plataforma',`
-  <div class="sec-info">
-    <h3>🔐 Status de Proteção do Conteúdo</h3>
-    ${[
-      {ico:'🚫',l:'Download de materiais bloqueado',d:'PDFs e apostilas não podem ser baixados pelos colaboradores',s:'ok'},
-      {ico:'🔒',l:'Cópia de texto desabilitada',d:'user-select:none aplicado globalmente na plataforma',s:'ok'},
-      {ico:'🖱️',l:'Menu de contexto (botão direito) bloqueado',d:'oncontextmenu=false nos viewers de PDF',s:'ok'},
-      {ico:'🎓',l:'Apenas certificado pode ser baixado',d:'Download disponível somente via impressão do certificado final',s:'ok'},
-      {ico:'🔗',l:'URLs de arquivos não exibidas',d:'Blob URLs não persistem entre sessões; em produção use tokens temporários',s:'warn'},
-      {ico:'📦',l:'Módulos com acesso sequencial',d:'Aluno só avança após concluir módulo anterior e sua prova',s:'ok'},
-    ].map(i=>`<div class="sec-item">
-      <div class="sec-item-info"><span class="sec-item-ico">${i.ico}</span>
-      <div><div class="sec-item-label">${i.l}</div><div class="sec-item-desc">${i.d}</div></div></div>
-      <span class="${i.s==='ok'?'sec-ok':'sec-warn'}">${i.s==='ok'?'Ativo':'Recomendado'}</span>
-    </div>`).join('')}
-  </div>
-  <div class="sec-info">
-    <h3>👥 Contas Ativas por Tipo</h3>
-    ${[['master','Master','#92400E','ab-master'],['gestor','Gestor','#5B21B6','ab-gestor'],['colaborador','Colaborador','#FF6A00','ab-colab']].map(([t,l,c,cls])=>{
-      const us=USERS.filter(u=>u.type===t&&u.active);
-      return `<div style="padding:11px 0;border-bottom:1px solid var(--bdr-lt)">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-          <span class="abadge ${cls}">${l}</span>
-          <strong>${us.length} usuário(s) ativo(s)</strong>
-        </div>
-        <div style="font-size:13px;color:var(--t2)">${us.map(u=>u.name).join(', ')||'—'}</div>
-      </div>`;}).join('')}
-  </div>
-  <div style="display:flex;gap:8px">
-    <button class="btn b-or" onclick="go('mNewUser')">+ Cadastrar Usuário</button>
-    <button class="btn b-gh" onclick="go('mUsers')">Gerenciar Usuários</button>
-  </div>`);
+  page('Segurança','Logs e proteção de conteúdo',`
+    <div class="tw" style="padding:20px;margin-bottom:20px">
+      <h3 style="margin-bottom:15px">Configurações de Proteção</h3>
+      <label style="display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:14px">
+        <input type="checkbox" checked disabled> Bloquear botão direito do mouse
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:14px">
+        <input type="checkbox" checked disabled> Impedir seleção de texto
+      </label>
+      <label style="display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:14px">
+        <input type="checkbox" checked disabled> Marca d'água dinâmica (User ID)
+      </label>
+    </div>
+    <div class="sh"><h2>Logs de Acesso</h2></div>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Data/Hora</th><th>Usuário</th><th>Ação</th><th>IP</th></tr></thead>
+        <tbody>
+          <tr><td>25/02/2025 09:41</td><td>Hans</td><td>Login efetuado</td><td>192.168.1.45</td></tr>
+          <tr><td>25/02/2025 09:38</td><td>João Silva</td><td>Aula concluída (NR-12)</td><td>10.0.0.122</td></tr>
+          <tr><td>25/02/2025 09:15</td><td>Ana Paula</td><td>Tentativa de prova (Módulo 1)</td><td>10.0.0.15</td></tr>
+        </tbody>
+      </table>
+    </div>
+  `);
 }
 
-/* ════════════════════════════════════════════════════════════════
-   CONTENT PROTECTION
-════════════════════════════════════════════════════════════════ */
-document.addEventListener('contextmenu',e=>{
-  if(e.target.closest('.pdf-protected,.vwc,.cert')) e.preventDefault();
-});
-document.addEventListener('keydown',e=>{
-  if((e.ctrlKey||e.metaKey)&&['s','p','u'].includes(e.key.toLowerCase())){
-    if(document.getElementById('app').style.display!=='none') e.preventDefault();
-  }
-});
+window.onload = () => {};
 </script>
 </body>
 </html>
