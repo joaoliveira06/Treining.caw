@@ -341,7 +341,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 }
 
 /* ═══════════════════════ LOGO SUBTITLE ═══════════════════════ */
-.logo-subtitle{display:flex;flex-direction:column;align-items:center;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;line-height:1.3}
+.logo-subtitle{displ<ay:flex;flex-direction:column;align-items:center;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;line-height:1 />
 </style>
 </head>
 <body>
