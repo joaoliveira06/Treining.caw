@@ -20,7 +20,7 @@
 body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;
   user-select:none;-webkit-user-select:none;
 }
-img{pointer-events:none;-webkit-user-drag:none}
+img{pointer-events:none;-webkit-user-drag:none;object-position:top}
 #landing{display:block}#app{display:none}
 
 /* ═══════════════════════ LANDING NAV ═══════════════════════ */
