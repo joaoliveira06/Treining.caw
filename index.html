@@ -997,9 +997,9 @@ function certificate(){
   const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
   const certHtml=`
   <div class="cert" id="certBlock">
-    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:5px;position:relative">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-20px;left:-20px;height:70px;width:auto;object-fit:contain;" alt="CAW Logo">
-      <div style="text-align:left;margin-left:80px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:15px;position:relative">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-15px;left:-10px;height:55px;width:auto;object-fit:contain;" alt="CAW Logo">
+      <div style="text-align:left;margin-left:110px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
     </div>
     <div class="cert-h1" style="margin-top:5px;">Certificado de Conclusão</div>
     <div class="cert-h2">Este documento certifica que</div>
@@ -1048,9 +1048,9 @@ function viewUserCert(uid, cid){
   const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
   const certHtml=`
   <div class="cert" id="certBlock">
-    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:5px;position:relative">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-20px;left:-20px;height:70px;width:auto;object-fit:contain;" alt="CAW Logo">
-      <div style="text-align:left;margin-left:80px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:15px;position:relative">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-15px;left:-10px;height:55px;width:auto;object-fit:contain;" alt="CAW Logo">
+      <div style="text-align:left;margin-left:110px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
     </div>
     <div class="cert-h1" style="margin-top:5px;">Certificado de Conclusão</div>
     <div class="cert-h2">Este documento certifica que</div>
