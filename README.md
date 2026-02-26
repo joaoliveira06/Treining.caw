@@ -17,7 +17,7 @@
   --s2:0 4px 16px rgba(0,0,0,.08);--s3:0 12px 40px rgba(0,0,0,.14);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;
+body{font-family:'Barlow',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;scroll-behavior:smooth;
   /* content protection */
   user-select:none;-webkit-user-select:none;
 }
@@ -350,7 +350,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 <nav class="lnav">
   <div class="logo"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="height:48px;width:auto;object-fit:contain;" alt="Telecom e Energia Logo"></div>
   <div class="lnav-links">
-    <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="#features">Contato</a>
+    <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="https://wa.me/5541997535660" target="_blank">Suporte</a>
     <button class="btn b-or" style="padding:9px 20px;font-size:12px" onclick="openLogin()">Acessar →</button>
   </div>
 </nav>
@@ -1185,7 +1185,7 @@ function mDash(){
     <div class="kpi"><div class="kico">📦</div><div class="kval">${COURSES.reduce((s,c)=>s+(c.modules?.length||0),0)}</div><div class="klbl">Módulos</div></div>
     <div class="kpi"><div class="kico">🎓</div><div class="kval">${colabors.filter(u=>u.courseId&&isCourseComplete(u.id,u.courseId)).length}</div><div class="klbl">Certificados</div></div>
   </div>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
     <div class="cht"><div class="chtt">Conclusões por Mês</div>
       <div class="bch">${[['Out',55],['Nov',72],['Dez',68],['Jan',85],['Fev',91]].map(([m,v])=>`<div class="bg"><div class="bar" style="height:${v}%"></div><div class="brl">${m}</div></div>`).join('')}</div>
     </div>
@@ -1197,6 +1197,20 @@ function mDash(){
           <span style="flex:1;font-size:13px;font-weight:600;color:var(--t2)">${l}</span>
           <strong style="color:var(--t1);font-size:16px">${cnt}</strong>
         </div>`;}).join('')}
+    </div>
+  </div>
+  <div class="cht" style="margin-bottom:16px">
+    <div class="chtt">Distribuição por Setor / Departamento</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));gap:10px">
+      ${(()=>{
+        const sectors = {};
+        USERS.forEach(u => { if(u.sector) sectors[u.sector] = (sectors[u.sector]||0) + 1; });
+        return Object.entries(sectors).sort((a,b)=>b[1]-a[1]).map(([s,c])=>`
+          <div style="background:var(--surf2);padding:10px 14px;border-radius:8px;border:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:12px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:0.5px">${s}</span>
+            <strong style="color:var(--or);font-size:16px">${c}</strong>
+          </div>`).join('');
+      })()}
     </div>
   </div>`,
   `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewCourse')">+ Novo Curso</button>
@@ -1289,9 +1303,13 @@ function mNewUser(){
       <div><label class="form-label">Setor / Departamento</label>
         <select id="eu-sector" class="form-input" style="font-size:15px;padding:12px 15px">
           <option value="">Selecione...</option>
-          <option>Produção</option><option>Qualidade</option><option>Manutenção</option>
-          <option>Segurança / SST</option><option>Engenharia</option><option>Gestão</option>
-          <option>Diretoria</option><option>Administrativo</option>
+          <option>Administração</option><option>Comercial</option><option>Diretoria</option>
+          <option>Finanças</option><option>Implantação</option><option>Juridico</option>
+          <option>Locadora</option><option>Logistica</option><option>Manutenção</option>
+          <option>Marketing</option><option>Operações</option><option>Patrimonio</option>
+          <option>PCP</option><option>Projetos</option><option>Qualidade</option>
+          <option>RH/Terceiros</option><option>Suprimentos</option><option>T.I</option>
+          <option>Engenharia</option>
         </select>
       </div>
     </div>
