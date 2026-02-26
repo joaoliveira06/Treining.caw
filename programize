@@ -382,6 +382,11 @@ img{pointer-events:none;-webkit-user-drag:none}
       <div class="fc"><div class="fci">👥</div><h3>3 Níveis de Acesso</h3><p>Master (controle total), Gestor (visualização) e Colaborador (estudo), definidos pelo curso.</p></div>
       <div class="fc"><div class="fci">📊</div><h3>Histórico de Desempenho</h3><p>Registro de todas as tentativas de prova, notas obtidas e progresso por módulo.</p></div>
     </div>
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--bdr)">
+      <div class="seye">Sobre o Site</div>
+      <h2 class="sttl" style="margin-bottom:18px">Sobre o Site</h2>
+      <p style="max-width:760px;font-size:15px;color:var(--t2);line-height:1.85">Esta é a plataforma oficial de treinamento da <strong>CAW Industrial</strong> — desenvolvida para capacitar colaboradores de todos os setores, do nível mais básico ao mais avançado. Aqui você encontra trilhas de aprendizado estruturadas, avaliações por módulo, certificação digital e acompanhamento de desempenho em tempo real, garantindo que cada profissional evolua no seu próprio ritmo, com total segurança e controle de conteúdo.</p>
+    </div>
   </div>
 </section>
 <footer class="lfoot">
@@ -1026,6 +1031,10 @@ function printCert(){
 }
 
 function viewUserCert(uid, cid){
+  if(CU.type !== 'master' && CU.type !== 'gestor'){
+    toast('⛔ Acesso negado. Apenas Master e Gestor podem visualizar certificados de terceiros.');
+    return;
+  }
   const u=USERS.find(x=>x.id===uid);
   const c=COURSES.find(x=>x.id===cid);
   if(!u || !c) return;
@@ -1506,8 +1515,14 @@ function mNewCourse(){
       <div><label class="form-label">Categoria</label>
         <select id="nc-cat" class="form-input" style="font-size:15px;padding:13px 15px">
           <option value="">Selecione...</option>
-          <option>Segurança</option><option>Técnico</option><option>Qualidade</option>
-          <option>Manutenção</option><option>Saúde</option><option>Gestão</option><option>Engenharia</option>
+          <option>Administração</option><option>Comercial</option><option>Diretoria</option>
+          <option>Finanças</option><option>Implantação</option><option>Juridico</option>
+          <option>Locadora</option><option>Logistica</option><option>Manutenção</option>
+          <option>Marketing</option><option>Operações</option><option>Patrimonio</option>
+          <option>PCP</option><option>Projetos</option><option>Qualidade</option>
+          <option>RH/Terceiros</option><option>Suprimentos</option><option>T.I</option>
+          <option>Engenharia</option><option>Segurança</option><option>Técnico</option>
+          <option>Saúde</option><option>Gestão</option>
         </select>
       </div>
       <div><label class="form-label">Ícone</label>
