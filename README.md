@@ -1031,6 +1031,10 @@ function printCert(){
 }
 
 function viewUserCert(uid, cid){
+  if(CU.type !== 'master' && CU.type !== 'gestor'){
+    toast('⛔ Acesso negado. Apenas Master e Gestor podem visualizar certificados de terceiros.');
+    return;
+  }
   const u=USERS.find(x=>x.id===uid);
   const c=COURSES.find(x=>x.id===cid);
   if(!u || !c) return;
