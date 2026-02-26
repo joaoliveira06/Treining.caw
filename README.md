@@ -342,15 +342,14 @@ img{pointer-events:none;-webkit-user-drag:none}
 
 /* ═══════════════════════ LOGO SUBTITLE ═══════════════════════ */
 .logo-subtitle{display:flex;flex-direction:column;align-items:center;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;line-height:1.3}
-</style>
-<img width="436" height="199" alt="image" src="https://github.com/user-attachments/assets/52925040-4075-453a-9012-9252198c4e3a" />
+</style> />
 </head>
 <body>
 <!-- ════════════════════════════════════════════════════════ LANDING ════ -->
 <div id="landing">
 <nav class="lnav">
-  <div class="logo"<img width="436" height="199" alt="image" src="https://github.com/user-attachments/assets/f76beec4-a864-48d3-b700-7970a17cb30d" />
-;" alt="CAW Logo"></div>
+  <div class="" /><img width="436" height="199" alt="image" src="https://github.com/user-attachments/assets/bb47dc59-6448-4072-9b93-47372d6a5592" />
+</div>
   <div class="lnav-links">
     <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="#features">Contato</a>
     <button class="btn b-or" style="padding:9px 20px;font-size:12px" onclick="openLogin()">Acessar →</button>
