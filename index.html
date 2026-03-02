@@ -997,14 +997,13 @@ function certificate(){
   const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
   const certHtml=`
   <div class="cert" id="certBlock">
-    <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:15px;position:relative">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-15px;left:-10px;height:55px;width:auto;object-fit:contain;" alt="CAW Logo">
-      <div style="text-align:left;margin-left:110px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
+    <div style="display:flex;align-items:center;justify-content:center;margin-bottom:30px;position:relative">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="height:65px;width:auto;object-fit:contain;" alt="CAW Logo">
     </div>
     <div class="cert-h1" style="margin-top:5px;">Certificado de Conclusão</div>
     <div class="cert-h2">Este documento certifica que</div>
     <div class="cert-nm">${CU.name}</div>
-    <div class="cert-bd">concluiu com êxito o curso técnico industrial</div>
+    <div class="cert-bd">concluiu com êxito o curso técnico</div>
     <div class="cert-cs">${c.title}</div>
     <div style="font-size:13px;color:var(--t2);margin-bottom:28px">Carga Horária: ${c.hours}h · Nota Final: ${avg} · ${c.modules.length} módulo(s)</div>
     <div class="cert-ft">
@@ -1048,14 +1047,13 @@ function viewUserCert(uid, cid){
   const avg=avgScores.length?+(avgScores.reduce((a,b)=>a+b,0)/avgScores.length).toFixed(1):0;
   const certHtml=`
   <div class="cert" id="certBlock">
-    <div style="display:flex;align-items:center;justify-content:center;gap:15px;margin-bottom:15px;position:relative">
-      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="position:absolute;top:-15px;left:-10px;height:55px;width:auto;object-fit:contain;" alt="CAW Logo">
-      <div style="text-align:left;margin-left:110px"><div class="cert-co">TELECOM E ENERGIA</div><div class="cert-cos">Programa de Treinamento Técnico Interno</div></div>
+    <div style="display:flex;align-items:center;justify-content:center;margin-bottom:30px;position:relative">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="height:65px;width:auto;object-fit:contain;" alt="CAW Logo">
     </div>
     <div class="cert-h1" style="margin-top:5px;">Certificado de Conclusão</div>
     <div class="cert-h2">Este documento certifica que</div>
     <div class="cert-nm">${u.name}</div>
-    <div class="cert-bd">concluiu com êxito o curso técnico industrial</div>
+    <div class="cert-bd">concluiu com êxito o curso técnico</div>
     <div class="cert-cs">${c.title}</div>
     <div style="font-size:13px;color:var(--t2);margin-bottom:28px">Carga Horária: ${c.hours}h · Nota Final: ${avg} · ${c.modules.length} módulo(s)</div>
     <div class="cert-ft">
