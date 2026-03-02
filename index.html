@@ -1255,9 +1255,11 @@ function mUsers(){
       <td>${c?`<span class="course-tag">${c.title}</span>`:'<span style="color:var(--t3);font-size:12px">—</span>'}</td>
       <td><span class="abadge ${tc}">${tl}</span></td>
       <td><span class="bdg ${u.active?'bdg-ok':'bdg-off'}">${u.active?'Ativo':'Inativo'}</span></td>
-      <td style="display:flex;gap:5px">
-        <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
-        ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
+      <td style="vertical-align:middle;white-space:nowrap">
+        <div style="display:inline-flex;gap:5px;vertical-align:middle">
+          <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
+          ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
+        </div>
       </td>
     </tr>`;}).join('');
   page('Usuários','Gerenciar todos os acessos',
