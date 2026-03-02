@@ -54,6 +54,8 @@ img{pointer-events:none;-webkit-user-drag:none}
 .b-danger{background:rgba(220,38,38,.07);color:var(--err);border:1.5px solid rgba(220,38,38,.2);padding:6px 12px;font-size:11px;border-radius:5px;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);display:inline-flex;align-items:center;gap:4px}
 .b-danger:hover{background:rgba(220,38,38,.14)}
 .b-ok{background:rgba(22,163,74,.08);color:#16a34a;border:1.5px solid rgba(22,163,74,.2);padding:6px 12px;font-size:11px;border-radius:5px;cursor:pointer;font-family:'Barlow',sans-serif;font-weight:700;transition:all .3s cubic-bezier(0.4, 0, 0.2, 1);display:inline-flex;align-items:center;gap:4px}
+.b-trash{background:rgba(220,38,38,.07);color:var(--err);border:1.5px solid rgba(220,38,38,.2);padding:6px 8px;font-size:14px;border-radius:5px;cursor:pointer;transition:all .3s;display:inline-flex;align-items:center;justify-content:center}
+.b-trash:hover{background:var(--err);color:#fff}
 
 /* ═══════════════════════ HERO ═══════════════════════ */
 .hero{min-height:100vh;background:linear-gradient(158deg,var(--surf) 0%,var(--bg) 55%,var(--or-lt) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:110px 60px 80px;position:relative;overflow:hidden}
@@ -1259,6 +1261,7 @@ function mUsers(){
         <div style="display:inline-flex;gap:5px;vertical-align:middle">
           <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
           ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
+          ${u.type!=='master'?`<button class="b-trash" onclick="deleteUser(${u.id})" title="Excluir Usuário">🗑️</button>`:''}
         </div>
       </td>
     </tr>`;}).join('');
@@ -1271,6 +1274,19 @@ function toggleUser(id){
   const u=USERS.find(x=>x.id===id); if(!u) return;
   u.active=!u.active; saveUsers();
   toast(u.active?'✅ Usuário ativado':'⛔ Usuário desativado'); mUsers();
+}
+
+function deleteUser(id){
+  if(!confirm('Tem certeza que deseja excluir permanentemente este usuário?')) return;
+  const idx = USERS.findIndex(x=>x.id===id);
+  if(idx!==-1){
+    const u = USERS[idx];
+    if(u.type==='master') return toast('❌ Não é possível excluir um usuário Master');
+    USERS.splice(idx, 1);
+    saveUsers();
+    toast('🗑️ Usuário removido com sucesso');
+    mUsers();
+  }
 }
 
 function loadUserEdit(id){
