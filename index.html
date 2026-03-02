@@ -240,7 +240,8 @@ img{pointer-events:none;-webkit-user-drag:none}
 /* ═══════════════════════ TABLE ═══════════════════════ */
 .tbl{width:100%;border-collapse:collapse;background:var(--surf);border-radius:10px;overflow:hidden;border:1px solid var(--bdr);box-shadow:var(--s1)}
 .tbl th{background:var(--surf2);padding:11px 14px;text-align:left;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--bdr)}
-.tbl td{padding:12px 14px;font-size:14px;color:var(--t2);border-bottom:1px solid var(--bdr-lt);vertical-align:middle}
+.tbl td{padding:14px 18px;font-size:13px;color:var(--t2);border-bottom:1px solid var(--bdr-lt);vertical-align:middle;height:1px}
+.tbl td:last-child{border-bottom:1px solid var(--bdr-lt);display:table-cell;vertical-align:middle}
 .tbl tr:last-child td{border-bottom:none}.tbl tr:hover td{background:var(--surf2)}
 
 /* ═══════════════════════ CHART ═══════════════════════ */
@@ -353,6 +354,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 .logo-subtitle{display:flex;flex-direction:column;align-items:center;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#000;line-height:1.3}
 </style> />
   <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     lucide.createIcons();
   </script>
@@ -1213,28 +1215,72 @@ function mDash(){
       <div class="bch">${[['Out',55],['Nov',72],['Dez',68],['Jan',85],['Fev',91]].map(([m,v])=>`<div class="bg"><div class="bar" style="height:${v}%"></div><div class="brl">${m}</div></div>`).join('')}</div>
     </div>
     <div class="cht"><div class="chtt">Usuários por Tipo</div>
-      ${[['master','Master','#92400E'],['gestor','Gestor','#5B21B6'],['colaborador','Colaborador','#FF6A00']].map(([t,l,c])=>{
-        const cnt=USERS.filter(u=>u.type===t).length;
-        return `<div style="display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid var(--bdr-lt)">
-          <div style="width:10px;height:10px;border-radius:50%;background:${c}"></div>
-          <span style="flex:1;font-size:13px;font-weight:600;color:var(--t2)">${l}</span>
-          <strong style="color:var(--t1);font-size:16px">${cnt}</strong>
-        </div>`;}).join('')}
+      <canvas id="chartUserTypes" style="max-height:200px;margin-top:10px"></canvas>
+      <script>
+        setTimeout(() => {
+          const masterCnt = USERS.filter(u=>u.type==='master').length;
+          const gestorCnt = USERS.filter(u=>u.type==='gestor').length;
+          const colabCnt = USERS.filter(u=>u.type==='colaborador').length;
+          const ctx = document.getElementById('chartUserTypes')?.getContext('2d');
+          if(ctx) {
+            new Chart(ctx, {
+              type: 'doughnut',
+              data: {
+                labels: ['Master', 'Gestor', 'Colaborador'],
+                datasets: [{
+                  data: [masterCnt, gestorCnt, colabCnt],
+                  backgroundColor: ['#92400E', '#5B21B6', '#FF6A00'],
+                  borderColor: 'var(--surf)',
+                  borderWidth: 2
+                }]
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: { legend: { position: 'bottom', labels: { font: { size: 12, weight: '600' }, padding: 15, usePointStyle: true } } }
+              }
+            });
+          }
+        }, 100);
+      </script>
     </div>
   </div>
   <div class="cht" style="margin-bottom:16px">
-    <div class="chtt">Distribuição por Setor / Departamento</div>
-    <div style="display:grid;grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));gap:10px">
-      ${(()=>{
+    <div class="chtt">Cursos Realizados por Setor</div>
+    <canvas id="chartSectorCourses" style="max-height:250px;margin-top:10px"></canvas>
+    <script>
+      setTimeout(() => {
         const sectors = {};
-        USERS.forEach(u => { if(u.sector) sectors[u.sector] = (sectors[u.sector]||0) + 1; });
-        return Object.entries(sectors).sort((a,b)=>b[1]-a[1]).map(([s,c])=>`
-          <div style="background:var(--surf2);padding:10px 14px;border-radius:8px;border:1px solid var(--bdr);display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:12px;font-weight:700;color:var(--t2);text-transform:uppercase;letter-spacing:0.5px">${s}</span>
-            <strong style="color:var(--or);font-size:16px">${c}</strong>
-          </div>`).join('');
-      })()}
-    </div>
+        USERS.forEach(u => { if(u.sector && u.courseId) sectors[u.sector] = (sectors[u.sector]||0) + 1; });
+        const sortedSectors = Object.entries(sectors).sort((a,b)=>b[1]-a[1]).slice(0,10);
+        const labels = sortedSectors.map(([s]) => s);
+        const data = sortedSectors.map(([,c]) => c);
+        const ctx = document.getElementById('chartSectorCourses')?.getContext('2d');
+        if(ctx) {
+          new Chart(ctx, {
+            type: 'bar',
+            data: {
+              labels: labels,
+              datasets: [{
+                label: 'Cursos Realizados',
+                data: data,
+                backgroundColor: '#FF6A00',
+                borderColor: '#D95700',
+                borderWidth: 1,
+                borderRadius: 6
+              }]
+            },
+            options: {
+              indexAxis: 'y',
+              responsive: true,
+              maintainAspectRatio: true,
+              plugins: { legend: { display: false } },
+              scales: { x: { beginAtZero: true, ticks: { stepSize: 1 } } }
+            }
+          });
+        }
+      }, 100);
+    </script>
   </div>`,
   `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewCourse')">+ Novo Curso</button>
    <button class="btn b-gh" style="font-size:12px;padding:9px 18px" onclick="go('mNewUser')">+ Novo Usuário</button>`);
@@ -1255,9 +1301,12 @@ function mUsers(){
       <td>${c?`<span class="course-tag">${c.title}</span>`:'<span style="color:var(--t3);font-size:12px">—</span>'}</td>
       <td><span class="abadge ${tc}">${tl}</span></td>
       <td><span class="bdg ${u.active?'bdg-ok':'bdg-off'}">${u.active?'Ativo':'Inativo'}</span></td>
-      <td style="display:flex;gap:5px">
-        <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
-        ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
+      <td>
+        <div style="display:flex;gap:5px;align-items:center">
+          <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
+          ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
+          ${u.type!=='master'?`<button class="btn b-danger" onclick="if(confirm('Tem certeza que deseja excluir este usuário permanentemente?')) deleteUser(${u.id})">Excluir</button>`:''}
+        </div>
       </td>
     </tr>`;}).join('');
   page('Usuários','Gerenciar todos os acessos',
@@ -1269,6 +1318,14 @@ function toggleUser(id){
   const u=USERS.find(x=>x.id===id); if(!u) return;
   u.active=!u.active; saveUsers();
   toast(u.active?'✅ Usuário ativado':'⛔ Usuário desativado'); mUsers();
+}
+
+function deleteUser(id){
+  const u=USERS.find(x=>x.id===id); if(!u) return;
+  USERS = USERS.filter(x=>x.id!==id);
+  saveUsers();
+  toast('🗑️ Usuário excluído permanentemente');
+  mUsers();
 }
 
 function loadUserEdit(id){
