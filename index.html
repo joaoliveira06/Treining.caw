@@ -1493,9 +1493,11 @@ function mCourses(){
       <td><span class="bdg bdg-tag">${c.category||'Geral'}</span></td>
       <td><strong style="color:var(--or)">${c.modules?.length||0}</strong><br><small style="color:var(--t3)">${totalL} aulas</small></td>
       <td>${c.hours}h</td><td><strong style="color:var(--or)">${c.minScore.toFixed(1)}</strong></td>
-      <td style="display:flex;gap:5px">
-        <button class="btn b-sm" onclick="editCourse(${c.id})">Editar</button>
-        <button class="btn b-danger" onclick="deleteCourse(${c.id})">Excluir</button>
+      <td style="vertical-align:middle;white-space:nowrap">
+        <div style="display:inline-flex;gap:5px;vertical-align:middle">
+          <button class="btn b-sm" onclick="editCourse(${c.id})">Editar</button>
+          <button class="b-trash" onclick="deleteCourse(${c.id})" title="Excluir Curso">🗑️</button>
+        </div>
       </td>
     </tr>`;}).join('');
   page('Gestão de Cursos','Criar, editar e excluir cursos',
