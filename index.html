@@ -55,7 +55,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 .pill::before{content:'';width:6px;height:6px;background:var(--or);border-radius:50%;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
 .hero h1{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:clamp(44px,7vw,84px);line-height:.92;text-align:center;text-transform:uppercase;position:relative;z-index:1;margin-bottom:20px}
-.h-l1{display:block;color:var(--t1)}.h-l2{display:block;color:var(--or)}
+.h-l1{display:inline;color:var(--t1)}.h-l2{display:inline;color:var(--or)}
 .h-l3{display:block;color:var(--t3);font-size:.5em;letter-spacing:4px;font-weight:700;margin-top:10px}
 .hdesc{max-width:490px;text-align:center;margin-bottom:34px;color:var(--t2);font-size:15px;line-height:1.75;position:relative;z-index:1}
 .hctas{display:flex;gap:10px;align-items:center;position:relative;z-index:1}
@@ -350,14 +350,14 @@ img{pointer-events:none;-webkit-user-drag:none}
 <nav class="lnav">
   <div class="logo"><img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663187515352/DIIBAXsmwNKjxaBJ.png" style="height:48px;width:auto;object-fit:contain;" alt="Telecom e Energia Logo"></div>
   <div class="lnav-links">
-    <a href="#features">Plataforma</a><a href="#features">Sobre</a><a href="https://wa.me/5541997535660" target="_blank">Suporte</a>
+    <a href="#features">Plataforma</a><a href="#about">Sobre</a><a href="https://wa.me/5541997535660" target="_blank">Suporte</a>
     <button class="btn b-or" style="padding:9px 20px;font-size:12px" onclick="openLogin()">Acessar →</button>
   </div>
 </nav>
 <section class="hero">
   <div class="orb orb1"></div><div class="orb orb2"></div>
   <div class="pill">🏭 Plataforma Oficial de Treinamento Industrial</div>
-  <h1><span class="h-l1">Capacitação</span><span class="h-l2">Industrial</span><span class="h-l3">Treinamento Técnico Corporativo</span></h1>
+  <h1><span class="h-l1">Capacitação</span> <span class="h-l2">Industrial</span><span class="h-l3">Treinamento Técnico Corporativo</span></h1>
   <p class="hdesc">A plataforma oficial de Telecom e Energia. Capacite sua equipe com cursos técnicos, avaliações certificadas e relatórios em tempo real.</p>
   <div class="hctas">
     <button class="btn b-or" onclick="openLogin()">Acessar Plataforma →</button>
@@ -382,8 +382,7 @@ img{pointer-events:none;-webkit-user-drag:none}
       <div class="fc"><div class="fci">👥</div><h3>3 Níveis de Acesso</h3><p>Master (controle total), Gestor (visualização) e Colaborador (estudo), definidos pelo curso.</p></div>
       <div class="fc"><div class="fci">📊</div><h3>Histórico de Desempenho</h3><p>Registro de todas as tentativas de prova, notas obtidas e progresso por módulo.</p></div>
     </div>
-    <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--bdr)">
-      <div class="seye">Sobre o Site</div>
+    <div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--bdr)" id="about">
       <h2 class="sttl" style="margin-bottom:18px">Sobre o Site</h2>
       <p style="max-width:760px;font-size:15px;color:var(--t2);line-height:1.85">Esta é a plataforma oficial de treinamento da <strong>CAW Industrial</strong> — desenvolvida para capacitar colaboradores de todos os setores, do nível mais básico ao mais avançado. Aqui você encontra trilhas de aprendizado estruturadas, avaliações por módulo, certificação digital e acompanhamento de desempenho em tempo real, garantindo que cada profissional evolua no seu próprio ritmo, com total segurança e controle de conteúdo.</p>
     </div>
