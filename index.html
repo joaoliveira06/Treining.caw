@@ -2012,11 +2012,11 @@ document.addEventListener('keydown',e=>{
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
       htmlElement.setAttribute('data-theme', currentTheme);
-      themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '💡';
+      themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '💡';
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // If no preference, check system preference
       htmlElement.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '🌙';
+      themeToggle.textContent = '☀️';
     }
 
     themeToggle.addEventListener('click', () => {
@@ -2027,7 +2027,7 @@ document.addEventListener('keydown',e=>{
       } else {
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '🌙';
+        themeToggle.textContent = '☀️';
       }
     });
   </script>
