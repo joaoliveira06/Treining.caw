@@ -1747,13 +1747,45 @@ function addLesson(mid,type,prefill){
   list.appendChild(el);
 }
 
-function lessonFileChosen(lid,input){
+// Funções para converter PDF em Base64 e persistir entre sessões
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function base64ToBlob(base64) {
+  const arr = base64.split(',');
+  const mime = arr[0].match(/:(.*?);/)[1];
+  const bstr = atob(arr[1]);
+  const n = bstr.length;
+  const u8arr = new Uint8Array(n);
+  for (let i = 0; i < n; i++) {
+    u8arr[i] = bstr.charCodeAt(i);
+  }
+  return new Blob([u8arr], { type: mime });
+}
+
+function base64ToBlobUrl(base64) {
+  const blob = base64ToBlob(base64);
+  return URL.createObjectURL(blob);
+}
+
+async function lessonFileChosen(lid,input){
   const file=input.files[0]; if(!file) return;
-  const url=URL.createObjectURL(file);
-  input._objectUrl=url;
-  const el=document.getElementById('lf-'+lid);
-  if(el) el.textContent='✅ '+file.name+' ('+(file.size/1024/1024).toFixed(1)+'MB)';
-  toast('✅ '+file.name+' carregado!');
+  try {
+    const base64 = await fileToBase64(file);
+    input._base64Data = base64;
+    const el=document.getElementById('lf-'+lid);
+    if(el) el.textContent='✅ '+file.name+' ('+(file.size/1024/1024).toFixed(1)+'MB)';
+    toast('✅ '+file.name+' carregado!');
+  } catch(err) {
+    toast('❌ Erro ao carregar arquivo');
+    console.error(err);
+  }
 }
 
 function addQuestion(mid,prefill){
@@ -1821,7 +1853,7 @@ function saveCourse(){
       const lurl=document.getElementById('lurl-'+lid)?.value?.trim()||'';
       const fileInput=lel.querySelector('input[type=file]');
       const type=fileInput?(fileInput.accept.includes('video')?'video':'pdf'):'link';
-      const url=fileInput?._objectUrl||lurl;
+      const url=fileInput?._base64Data||lurl;
       lessons.push({id:li+1,title:ltitle,type,url,text:ldesc});
     });
 
@@ -1980,11 +2012,11 @@ document.addEventListener('keydown',e=>{
     const currentTheme = localStorage.getItem('theme');
     if (currentTheme) {
       htmlElement.setAttribute('data-theme', currentTheme);
-      themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '💡';
+      themeToggle.textContent = currentTheme === 'dark' ? '🌙' : '💡';
     } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
       // If no preference, check system preference
       htmlElement.setAttribute('data-theme', 'dark');
-      themeToggle.textContent = '☀️';
+      themeToggle.textContent = '🌙';
     }
 
     themeToggle.addEventListener('click', () => {
@@ -1995,7 +2027,7 @@ document.addEventListener('keydown',e=>{
       } else {
         htmlElement.setAttribute('data-theme', 'dark');
         localStorage.setItem('theme', 'dark');
-        themeToggle.textContent = '☀️';
+        themeToggle.textContent = '🌙';
       }
     });
   </script>
