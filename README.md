@@ -69,7 +69,7 @@ img{pointer-events:none;-webkit-user-drag:none}
 .h-l1{display:inline;color:var(--t1)}.h-l2{display:inline;color:var(--or)}
 .h-l3{display:block;color:var(--t3);font-size:.5em;letter-spacing:4px;font-weight:700;margin-top:10px}
 .hdesc{max-width:490px;text-align:center;margin-bottom:34px;color:var(--t2);font-size:15px;line-height:1.75;position:relative;z-index:1}
-.hctas{display:flex;gap:10px;align-items:center;position:relative;z-index:1}
+.hctas{display:flex;gap:10px;align-items:center;justify-content:center;position:relative;z-index:1}
 .sstrip{display:grid;grid-template-columns:repeat(4,1fr);max-width:820px;width:100%;margin:44px auto 0;background:var(--surf);border:1px solid var(--bdr);border-radius:12px;overflow:hidden;box-shadow:var(--s2);position:relative;z-index:1}
 .si{padding:20px 22px;text-align:center;border-right:1px solid var(--bdr)}.si:last-child{border-right:none}
 .sn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:32px;color:var(--or);line-height:1}
@@ -376,7 +376,6 @@ img{pointer-events:none;-webkit-user-drag:none}
   <p class="hdesc">A plataforma oficial de Telecom e Energia. Capacite sua equipe com cursos técnicos, avaliações certificadas e relatórios em tempo real.</p>
   <div class="hctas">
     <button class="btn b-or" onclick="openLogin()">Acessar Plataforma →</button>
-    <button class="btn b-gh" onclick="demoLogin('hans','Hans7411')">Demo Master</button>
   </div>
   <div class="sstrip">
     <div class="si"><div class="sn">20+</div><div class="sl">Cursos Ativos</div></div>
