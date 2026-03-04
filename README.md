@@ -1554,8 +1554,7 @@ function mNewCourse(){
           <option>Marketing</option><option>Operações</option><option>Patrimonio</option>
           <option>PCP</option><option>Projetos</option><option>Qualidade</option>
           <option>RH/Terceiros</option><option>Suprimentos</option><option>T.I</option>
-          <option>Engenharia</option><option>Segurança</option><option>Técnico</option>
-          <option>Saúde</option><option>Gestão</option>
+          <option>Engenharia</option>
         </select>
       </div>
       <div><label class="form-label">Ícone</label>
