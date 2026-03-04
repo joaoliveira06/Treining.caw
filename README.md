@@ -1343,9 +1343,9 @@ function mNewUser(){
       <div><label class="form-label">Setor / Departamento</label>
         <select id="eu-sector" class="form-input" style="font-size:15px;padding:12px 15px">
           <option value="">Selecione...</option>
-          <option>Administração</option><option>Comercial</option><option>Diretoria</option>
-          <option>Finanças</option><option>Implantação</option><option>Juridico</option>
-          <option>Locadora</option><option>Logistica</option><option>Manutenção</option>
+          <option>Administração</option><option>Comercial</option>
+          <option>Finanças</option><option>Implantação</option>
+          <option>Logistica</option><option>Manutenção</option>
           <option>Marketing</option><option>Operações</option><option>Patrimonio</option>
           <option>PCP</option><option>Projetos</option><option>Qualidade</option>
           <option>RH/Terceiros</option><option>Suprimentos</option><option>T.I</option>
@@ -1548,9 +1548,9 @@ function mNewCourse(){
       <div><label class="form-label">Categoria</label>
         <select id="nc-cat" class="form-input" style="font-size:15px;padding:13px 15px">
           <option value="">Selecione...</option>
-          <option>Administração</option><option>Comercial</option><option>Diretoria</option>
-          <option>Finanças</option><option>Implantação</option><option>Juridico</option>
-          <option>Locadora</option><option>Logistica</option><option>Manutenção</option>
+          <option>Administração</option><option>Comercial</option>
+          <option>Finanças</option><option>Implantação</option>
+          <option>Logistica</option><option>Manutenção</option>
           <option>Marketing</option><option>Operações</option><option>Patrimonio</option>
           <option>PCP</option><option>Projetos</option><option>Qualidade</option>
           <option>RH/Terceiros</option><option>Suprimentos</option><option>T.I</option>
