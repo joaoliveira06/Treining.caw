@@ -813,10 +813,25 @@ function showLesson(cid,mid,lid){
     }
   } else if(l.type==='pdf'){
     if(l.url){
-      // Protected PDF: block download bar, disable right-click
-      mediaHtml=`
+      // Protected PDF: Use iframe with object fallback or Google Docs Viewer if it's a URL
+      let pdfSrc = l.url;
+      const isBase64 = l.url.startsWith('data:application/pdf;base64,');
+      
+      if (!isBase64 && l.url.startsWith('http')) {
+        // For external URLs, Google Docs Viewer is more reliable against CORS
+        pdfSrc = `https://docs.google.com/viewer?url=${encodeURIComponent(l.url)}&embedded=true`;
+      }
+
+      mediaHtml = `
       <div class="pdf-protected" oncontextmenu="return false">
-        <embed src="${l.url}#toolbar=0&navpanes=0&scrollbar=1&statusbar=0&view=FitH" type="application/pdf" style="width:100%;height:100%;border:none">
+        <iframe src="${pdfSrc}${isBase64 ? '#toolbar=0&navpanes=0&scrollbar=1&view=FitH' : ''}" 
+                style="width:100%;height:100%;border:none" 
+                allow="autoplay">
+          <object data="${l.url}" type="application/pdf" style="width:100%;height:100%">
+            <p>Seu navegador não suporta a visualização direta de PDFs. 
+            <a href="${l.url}" target="_blank">Clique aqui para abrir o arquivo</a>.</p>
+          </object>
+        </iframe>
         <div class="pdf-toolbar-block"></div>
       </div>
       <div class="pdfrow">
