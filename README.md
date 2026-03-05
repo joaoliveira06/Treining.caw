@@ -623,7 +623,6 @@ function buildSidebar(){
     h=`<div class="sbsec">Aprendizado</div>
     <div class="ni" id="n-dashboard" onclick="go('dashboard')"><span class="ni-ico">🏠</span>Dashboard</div>
     <div class="ni" id="n-myCourses" onclick="go('myCourses')"><span class="ni-ico">📚</span>Meus Cursos</div>
-    <div class="ni" id="n-ranking" onclick="go('ranking')"><span class="ni-ico">🏆</span>Ranking</div>
     <div class="sbsec">Conta</div>
     <div class="ni ni-out" onclick="logout()"><span class="ni-ico">🚪</span>Sair</div>`;
   }
@@ -1104,6 +1103,12 @@ function viewUserCert(uid, cid){
    RANKING
 ════════════════════════════════════════════════════════════════ */
 function ranking(){
+  // Validação: apenas Master e Gestor podem acessar o ranking
+  if(CU.type !== 'master' && CU.type !== 'gestor'){
+    toast('⛔ Acesso negado. Apenas Master e Gestor podem visualizar o ranking.');
+    go('dashboard');
+    return;
+  }
   const data=USERS.filter(u=>u.type==='colaborador'&&u.active).map(u=>{
     const courses=COURSES.filter(c=>c.id===u.courseId||!u.courseId);
     const scores=[];
