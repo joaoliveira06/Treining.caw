@@ -1639,9 +1639,22 @@ if (error) {
     `<button class="btn b-or" style="font-size:12px;padding:9px 18px" onclick="go('mNewUser')">+ Novo Usuário</button>`);
 }
 
-function toggleUser(id){
+async function toggleUser(id){
   const u=USERS.find(x=>x.id===id); if(!u) return;
-  u.active=!u.active; saveUsers();
+  const novoStatus = !u.active;
+
+const { error } = await supabaseResultados
+  .from('users')
+  .update({ active: novoStatus })
+  .eq('id', id);
+
+if (error) {
+  console.error('Erro ao alterar status:', error);
+  toast('❌ Erro ao alterar status do usuário.');
+  return;
+}
+
+u.active = novoStatus;
   toast(u.active?'✅ Usuário ativado':'⛔ Usuário desativado'); mUsers();
 }
 
