@@ -1603,6 +1603,14 @@ function mDash(){
 
 /* ── MASTER: USUÁRIOS ─────────────────────────────────────────── */
 async function mUsers(){
+  const { data: usuariosBanco, error } = await supabaseResultados
+  .from('users')
+  .select('*')
+  .order('name');
+
+if (!error && usuariosBanco) {
+  USERS = usuariosBanco;
+}
   const rows=USERS.map(u=>{
     const tl={master:'Master',gestor:'Gestor',colaborador:'Colaborador'}[u.type];
     const tc={master:'ab-master',gestor:'ab-gestor',colaborador:'ab-colab'}[u.type];
