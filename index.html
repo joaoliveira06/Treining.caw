@@ -1651,17 +1651,14 @@ async function deleteUser(id){
   if(idx!==-1){
     const u = USERS[idx];
     if(u.type==='master') return toast('❌ Não é possível excluir um usuário Master');
-  const { error } = await supabaseResultados
-  .from('users')
-  .delete()
-  .eq('id', id);
+  const { data: excluido, error } = await supabaseResultados
+  .rpc('excluir_usuario_caw', { p_id: id });
 
-if (error) {
+if (error || !excluido) {
   console.error('Erro ao excluir usuário:', error);
   toast('❌ Erro ao excluir usuário.');
   return;
 }
-
 USERS.splice(idx, 1);
 saveUsers();
     toast('🗑️ Usuário removido com sucesso');
