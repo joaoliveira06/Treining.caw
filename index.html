@@ -1625,11 +1625,13 @@ if (error) {
       <td><span class="abadge ${tc}">${tl}</span></td>
       <td><span class="bdg ${u.active?'bdg-ok':'bdg-off'}">${u.active?'Ativo':'Inativo'}</span></td>
       <td style="vertical-align:middle;white-space:nowrap">
-        <div style="display:inline-flex;gap:5px;vertical-align:middle">
-          <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit(${u.id}),50)">Editar</button>
-          ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser(${u.id})">${u.active?'Desativar':'Ativar'}</button>`:''}
-          ${u.type!=='master'?`<button class="b-trash" onclick="deleteUser(${u.id})" title="Excluir Usuário">🗑️</button>`:''}
-        </div>
+<div style="display:inline-flex;gap:5px;vertical-align:middle">
+  <button class="btn b-sm" onclick="go('mNewUser');setTimeout(()=>loadUserEdit('${u.id}'),50)">Editar</button>
+
+  ${u.type!=='master'?`<button class="btn b-danger" onclick="toggleUser('${u.id}')">${u.active?'Desativar':'Ativar'}</button>`:''}
+
+  ${u.type!=='master'?`<button class="b-trash" onclick="deleteUser('${u.id}')" title="Excluir Usuário">🗑️</button>`:''}
+</div>
       </td>
     </tr>`;}).join('');
   page('Usuários','Gerenciar todos os acessos',
