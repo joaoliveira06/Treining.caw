@@ -1866,9 +1866,7 @@ const { data, error } = await supabaseResultados
     color: novoUsuario.color,
     "courseId": novoUsuario.courseId,
     active: novoUsuario.active
-  }])
-  .select()
-  .single();
+  }]);
 
 if (error) {
   console.error('Erro ao cadastrar usuário:', error);
