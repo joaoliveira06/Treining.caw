@@ -1603,12 +1603,12 @@ function mDash(){
 
 /* ── MASTER: USUÁRIOS ─────────────────────────────────────────── */
 async function mUsers(){
-  const { data: usuariosBanco, error } = await supabaseResultados
-  .from('users')
-  .select('*')
-  .order('name');
+const { data: usuariosBanco, error } = await supabaseResultados
+  .rpc('listar_usuarios_caw');
 
-if (!error && usuariosBanco) {
+if (error) {
+  console.error('Erro ao carregar usuários:', error);
+} else if (usuariosBanco) {
   USERS = usuariosBanco;
 }
   const rows=USERS.map(u=>{
