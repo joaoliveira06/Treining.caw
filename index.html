@@ -1602,7 +1602,7 @@ function mDash(){
 }
 
 /* ── MASTER: USUÁRIOS ─────────────────────────────────────────── */
-function mUsers(){
+async function mUsers(){
   const rows=USERS.map(u=>{
     const tl={master:'Master',gestor:'Gestor',colaborador:'Colaborador'}[u.type];
     const tc={master:'ab-master',gestor:'ab-gestor',colaborador:'ab-colab'}[u.type];
